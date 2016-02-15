@@ -20,6 +20,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-markdown'
 Plug 'Raimondi/delimitMate'
+Plug 'klen/python-mode'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -30,7 +31,9 @@ Plug 'benekastah/neomake'
 
 call plug#end()
 
-syntax on
+let mapleader = ' '
+set noerrorbells visualbell t_vb=
+
 colorscheme atom-dark-256
 
 set scrolloff=5
@@ -39,23 +42,37 @@ set ignorecase
 set smartcase
 
 set number
+syntax on
 set autoindent
 set colorcolumn=90
 set laststatus=2
 
+" tex 
+autocmd BufNewFile,BufRead *.cls set ft=tex
+autocmd FileType tex set shiftwidth=2 | set tabstop=2 | set expandtab | set softtabstop=2 | set shiftround | set linebreak
+
+let g:pymode_rope = 0
+let g:pymode_lint_write = 0
 " python linting
 autocmd! BufWritePost,BufEnter * Neomake
-let g:neomake_verbos=3
-let g:neomake_logfile='/home/maxnoe/neomake.log'
 let g:neomake_python_enabled_makers = ['flake8']
-
 let g:neomake_python_flake8_maker = {
     \ 'args': ['--max-line-length=90'],
     \ }
 
+" easy align:
+vmap <Enter> <Plug>(EasyAlign)
+
+" indent guide
+let g:indent_guides_start_level = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black ctermbg=Black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgray ctermbg=DarkGray
+
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
