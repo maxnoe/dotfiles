@@ -47,14 +47,21 @@ set autoindent
 set colorcolumn=90
 set laststatus=2
 
+
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
 " tex 
 autocmd BufNewFile,BufRead *.cls set ft=tex
 autocmd FileType tex set shiftwidth=2 | set tabstop=2 | set expandtab | set softtabstop=2 | set shiftround | set linebreak
 
 let g:pymode_rope = 0
 let g:pymode_lint_write = 0
+let g:pymode_lint_checkers=[]
 " python linting
 autocmd! BufWritePost,BufEnter * Neomake
+autocmd! QuitPre * let g:neomake_verbose = 0
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_python_flake8_maker = {
     \ 'args': ['--max-line-length=90'],
