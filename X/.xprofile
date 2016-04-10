@@ -2,3 +2,4 @@ xset r rate 200 50
 nm-applet &
 xbindkeys
 dropbox start &
+updatedb
