@@ -3,8 +3,8 @@ URxvt*scrollBar: false
 URxvt*foreground: white
 URxvt*background: rgba:0000/0000/0000/ffff
 URxvt*transparent: true
-URxvt*tintColor: darkgray
-URxvt*fade: 100
+URxvt*tintColor: #808080
+URxvt*fading: 50
 URxvt*fadecolor: black
 URxvt*secondaryScroll: true
 URxvt*font: xft:Deja Vu Sans Mono:antialias=true:size=12
