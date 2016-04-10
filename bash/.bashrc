@@ -35,9 +35,10 @@ fi
 
 #ruby gems
 export PATH="/home/maxnoe/.gem/ruby/2.3.0/bin:$PATH"
-
-export PATH="/home/maxnoe/.local/truee/bin:$PATH"
+export PATH="/home/maxnoe/.local/anaconda3/bin:$PATH"
 TF_ALIAS=fuck alias fuck='eval $(/usr/bin/thefuck $(fc -ln -1)); history -r'
 
 # added by travis gem
 [ -f /home/maxnoe/.travis/travis.sh ] && source /home/maxnoe/.travis/travis.sh
+
+
