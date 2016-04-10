@@ -3,3 +3,4 @@ nm-applet &
 xbindkeys
 dropbox start &
 updatedb
+xrdb -merge ~/.Xresources
