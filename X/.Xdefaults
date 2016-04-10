@@ -1,0 +1,31 @@
+URxvt.perl-ext-common: default,matcher,font-size,clipboard
+URxvt.saveLines: 1000
+URxvt.scrollBar: false
+URxvt.foreground: gray
+URxvt.background: black
+URxvt.transparent: false
+URxvt.secondaryScroll: true
+URxvt*font: xft:Anonymice Powerline:antialias=true:authint=true:size=16
+URxvt*boldFont: xft:Anonymice Powerline:antialias=true:size=16:style=bold
+URxvt*italicFont: xft:Anonymice Powerline:antialias=true:size=16:style=italic
+URxvt*boldItatlicFont: xft:Anonymice Powerline:antialias=true:size=16:style=bolditalic
+URxvt.url-launcher: google-chrome-stable
+URxvt.matcher.button: 1
+URxvt.tabbed.saveLines: 1000
+URxvt.tabbed.scrollBar: false
+URxvt.tabbed.tabbar-fg: 3
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 0
+URxvt.tabbed.tab-bg: 1
+URxvt.tabbed.secondaryScroll: true
+URxvt*inheritPixmap: true 
+URxvt*shading: 70
+URxvt.colorUL: #4682B4
+!font-size extension:
+URxvt.keysym.C-plus: perl:font-size:increase
+URxvt.keysym.C-minus: perl:font-size:decrease
+! enable C-S-v paster, C-S-c copy
+URxvt.iso14755: False
+URxvt.keysym.C-C: perl:clipboard:copy
+URxvt.keysym.C-V: perl:clipboard:paste
+URxvt.letterSpace: 1
