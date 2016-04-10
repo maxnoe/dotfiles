@@ -1,24 +1,26 @@
-URxvt.perl-ext-common: default,matcher,font-size,clipboard
-URxvt.saveLines: 10000
-URxvt.scrollBar: false
-URxvt.foreground: white
-URxvt.background: black
-URxvt.transparent: false
-URxvt.secondaryScroll: true
+URxvt*saveLines: 10000
+URxvt*scrollBar: false
+URxvt*foreground: white
+URxvt*background: rgba:0000/0000/0000/ffff
+URxvt*transparent: true
+URxvt*tintColor: darkgray
+URxvt*fade: 100
+URxvt*fadecolor: black
+URxvt*secondaryScroll: true
 URxvt*font: xft:Deja Vu Sans Mono:antialias=true:size=12
 URxvt*boldFont: xft:Deja Vu Sans Mono:antialias=true:size=12:style=bold
 URxvt*italicFont: xft:Deja Vu Sans Mono:antialias=true:size=12:style=italic
 URxvt*boldItatlicFont: xft:Deja Vu Sans Mono:antialias=true:size=12:style=bolditalic
-URxvt.url-launcher: google-chrome-stable
-URxvt.matcher.button: 1
-URxvt*inheritPixmap: true 
-URxvt*shading: 70
-URxvt.colorUL: #4682B4
+URxvt*url-launcher: google-chrome-stable
+URxvt*matcher.button: 1
+URxvt*colorUL: #4682B4
 !font-size extension:
+URxvt.perl-ext-common: default,matcher,font-size,clipboard
 URxvt.keysym.C-plus: font-size:increase
 URxvt.keysym.C-minus: font-size:decrease
 ! enable C-S-v paster, C-S-c copy
 URxvt*iso14755: false
+
 URxvt*keysym.C-C: clipboard:copy
 URxvt*keysym.C-V: clipboard:paste
 
