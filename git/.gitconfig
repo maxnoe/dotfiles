@@ -1,0 +1,11 @@
+[user]
+	email = maximilian.noethe@tu-dortmund.de
+	name = Maximilian Noethe
+[push]
+	default = simple
+[pull]
+	rebase = true
+[core]
+	editor = vim
+[alias]
+	graph = log --graph --all --decorate
