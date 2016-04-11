@@ -23,6 +23,8 @@ alias sa='source activate'
 export EDITOR=nvim
 export BROWSER=google-chrome-stable
 
+eval `dircolors ~/.dircolors`
+
 complete -cf sudo
 complete -cf man
 
