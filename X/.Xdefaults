@@ -16,8 +16,8 @@ URxvt*matcher.button: 1
 URxvt*colorUL: #4682B4
 !font-size extension:
 URxvt.perl-ext-common: default,matcher,font-size,clipboard
-URxvt.keysym.C-plus: font-size:increase
-URxvt.keysym.C-minus: font-size:decrease
+URxvt.keysym.C-plus: font-size:incglobal
+URxvt.keysym.C-minus: font-size:decglobal
 ! enable C-S-v paster, C-S-c copy
 URxvt*iso14755: false
 
