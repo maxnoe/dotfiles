@@ -15,7 +15,7 @@ function pdfpextr()
 }
 
 # extract:
-extract () {
+function extract () {
     if [ -f $1 ] ; then
       case $1 in
         *.tar.bz2)   tar xjf $1     ;;
@@ -34,4 +34,8 @@ extract () {
      else
          echo "'$1' is not a valid file"
      fi
+}
+
+function open () {
+	(xdg-open "$*" > /dev/null 2> /dev/null &)
 }

@@ -14,7 +14,6 @@ alias dir="dir --color=auto"
 alias grep="grep --color=auto"
 alias dmesg='dmesg --color'
 alias gits='git status -s'
-alias open='xdg-open $1 > /dev/null 2> /dev/null'
 alias ebrc='vim /home/maxnoe/.bashrc'
 alias sbrc='source ~/.bashrc'
 alias updatetl='tlmgr update --self --all --reinstall-forcibly-removed'
