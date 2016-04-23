@@ -1,3 +1,5 @@
+Xft.dpi: 210
+
 URxvt*saveLines: 10000
 URxvt*scrollBar: false
 URxvt*foreground: white
@@ -7,25 +9,28 @@ URxvt*tintColor: #808080
 URxvt*fading: 50
 URxvt*fadecolor: black
 URxvt*secondaryScroll: true
+
+! Fonts
 URxvt*font: xft:Deja Vu Sans Mono for Powerline:antialias=true:size=12
 URxvt*boldFont: xft:Deja Vu Sans Mono for Powerline:antialias=true:size=12:style=bold
 URxvt*italicFont: xft:Deja Vu Sans Mono for Powerline:antialias=true:size=12:style=italic
 URxvt*boldItatlicFont: xft:Deja Vu Sans Mono for Powerline:antialias=true:size=12:style=bolditalic
+
 URxvt*url-launcher: google-chrome-stable
 URxvt*matcher.button: 1
 URxvt*colorUL: #4682B4
+
 !font-size extension:
 URxvt.perl-ext-common: default,matcher,font-size,clipboard
 URxvt.keysym.C-plus: font-size:incglobal
 URxvt.keysym.C-minus: font-size:decglobal
+
 ! enable C-S-v paster, C-S-c copy
 URxvt*iso14755: false
-
 URxvt*keysym.C-C: clipboard:copy
 URxvt*keysym.C-V: clipboard:paste
 
 urxvt.color0:           #000000
-!urxvt.color0:           #2E3436
 urxvt.color1:           #a40000
 urxvt.color2:           #4E9A06
 urxvt.color3:           #C4A000
