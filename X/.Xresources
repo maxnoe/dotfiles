@@ -1,4 +1,4 @@
-Xft.dpi: 210
+Xft.dpi: 180
 
 URxvt*saveLines: 10000
 URxvt*scrollBar: false
