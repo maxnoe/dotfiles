@@ -7,5 +7,6 @@
 	rebase = true
 [core]
 	editor = vim
+	excludesfile = /home/maxnoe/.gitignore_global
 [alias]
 	graph = log --graph --all --decorate
