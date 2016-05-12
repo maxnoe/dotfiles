@@ -48,6 +48,9 @@ set autoindent
 set colorcolumn=90
 set laststatus=2
 
+" set default syntax to latex for .tex files:
+let g:tex_flavor = "latex"
+
 
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
@@ -85,8 +88,8 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" nerdtree on shift tab
-map <S-Tab> :NERDTreeToggle<CR>
+" nerdtree on ctrl tab
+map <C-Tab> :NERDTreeToggle<CR>
 
 " start nerdtree if no files are given
 autocmd StdinReadPre * let s:std_in=1
