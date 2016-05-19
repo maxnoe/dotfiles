@@ -26,6 +26,8 @@ Plug 'klen/python-mode'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'ctrlpvim/ctrlp.vim'
+
 Plug 'junegunn/vim-easy-align'
 
 Plug 'benekastah/neomake'
