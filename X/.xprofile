@@ -3,3 +3,4 @@ xbindkeys
 dropbox start &
 unclutter &
 xset r rate 200 50
+xset -b

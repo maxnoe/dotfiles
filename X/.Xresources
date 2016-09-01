@@ -6,7 +6,7 @@ URxvt*foreground: white
 URxvt*background: rgba:0000/0000/0000/ffff
 URxvt*transparent: true
 URxvt*tintColor: #808080
-URxvt*fading: 50
+URxvt*fading: 0
 URxvt*fadecolor: black
 URxvt*secondaryScroll: true
 
