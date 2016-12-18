@@ -37,9 +37,5 @@ function extract () {
 }
 
 function open () {
-	if [ -e $1 ] ; then 
-		(xdg-open "$*" > /dev/null 2> /dev/null &)
-	else 
-		echo "No such file or directory '$1'"
-	fi
+    (xdg-open "$1" > /dev/null 2>/dev/null &)
 }
