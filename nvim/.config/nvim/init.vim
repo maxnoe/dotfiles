@@ -14,6 +14,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'terryma/vim-multiple-cursors'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'chriskempson/base16-vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -37,7 +38,9 @@ call plug#end()
 let mapleader = ' '
 set noerrorbells visualbell t_vb=
 
-colorscheme atom-dark-256
+set t_Co=256
+let base16colorspace=256
+colorscheme base16-default-dark
 
 set scrolloff=5
 
@@ -91,7 +94,7 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " nerdtree on ctrl tab
-map <C-Tab> :NERDTreeToggle<CR>
+map <S-Tab> :NERDTreeToggle<CR>
 
 " start nerdtree if no files are given
 autocmd StdinReadPre * let s:std_in=1
