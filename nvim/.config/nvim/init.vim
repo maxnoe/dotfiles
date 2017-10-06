@@ -65,16 +65,24 @@ nnoremap <esc>^[ <esc>^[
 autocmd BufNewFile,BufRead *.cls set ft=tex
 autocmd FileType tex set shiftwidth=2 | set tabstop=2 | set expandtab | set softtabstop=2 | set shiftround | set linebreak
 
-let g:pymode_rope = 0
-let g:pymode_lint_write = 0
-let g:pymode_lint_checkers=[]
 " python linting
 autocmd! BufWritePost,BufEnter * Neomake
 autocmd! QuitPre * let g:neomake_verbose = 0
-let g:neomake_python_enabled_makers = ['flake8']
-let g:neomake_python_flake8_maker = {
-    \ 'args': ['--max-line-length=90'],
+function SetWarningType(entry)
+    let a:entry.type = 'W'
+endfunction
+
+let g:neomake_python_enabled_makers = ['pycodestyle', 'pyflakes']
+let g:neomake_python_pycodestyle_maker = {
+    \ 'args': ['--max-line-length=90', '--ignore=E741' ],
+    \ 'postprocess': function('SetWarningType')
     \ }
+
+highlight NeoMakeErrorSign ctermfg=196
+highlight NeoMakeError ctermfg=196
+highlight NeoMakeWarningSign ctermfg=226
+highlight NeoMakeWarning ctermfg=226
+
 
 " easy align:
 vmap <Enter> <Plug>(EasyAlign)
