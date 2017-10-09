@@ -4,3 +4,4 @@ set softtabstop=2
 set expandtab
 set shiftround
 set linebreak
+set makeprg=latexmk
