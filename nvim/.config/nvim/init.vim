@@ -23,7 +23,7 @@ Plug 'benekastah/neomake'
 
 " Auto-completion
 Plug 'ervandew/supertab'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 
 Plug 'SirVer/ultisnips'
