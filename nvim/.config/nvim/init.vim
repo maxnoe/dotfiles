@@ -38,7 +38,6 @@ Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
-
 set t_Co=256
 let base16colorspace=256
 colorscheme base16-default-dark
@@ -51,7 +50,6 @@ set smartcase
 set scrolloff=5
 set autoindent
 set colorcolumn=90
-set laststatus=2
 
 " deactivate all bells
 set noerrorbells 
@@ -71,6 +69,10 @@ let g:tex_flavor = "latex"
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
 " tex 
 autocmd BufNewFile,BufRead *.cls set ft=tex
 
@@ -88,6 +90,7 @@ function SetWarningType(entry)
     let a:entry.type = 'W'
 endfunction
 
+let g:neomake_tex_enabled_makers = []
 let g:neomake_python_enabled_makers = ['pycodestyle', 'pyflakes']
 let g:neomake_python_pycodestyle_maker = {
     \ 'args': ['--max-line-length=90', '--ignore=E741' ],
