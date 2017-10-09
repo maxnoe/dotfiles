@@ -77,6 +77,7 @@ autocmd BufNewFile,BufRead *.cls set ft=tex
 " enable Neomake on open and write but not on exit
 autocmd! BufWritePost,BufReadPost * Neomake
 autocmd! QuitPre * let g:neomake_verbose = 0
+let g:neomake_open_list = 2
 highlight NeoMakeErrorSign ctermfg=196
 highlight NeoMakeError ctermfg=196
 highlight NeoMakeWarningSign ctermfg=226
