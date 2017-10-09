@@ -18,6 +18,8 @@ alias ebrc='vim /home/maxnoe/.bashrc'
 alias sbrc='source ~/.bashrc'
 alias updatetl='tlmgr update --self --all --reinstall-forcibly-removed'
 alias sa='source activate'
+alias godark="ln -sf $HOME/.config/termite/{base16-default-dark.config,config}"
+alias golight="ln -sf $HOME/.config/termite/{base16-default-light.config,config}"
 
 export EDITOR=nvim
 export BROWSER=google-chrome-stable
