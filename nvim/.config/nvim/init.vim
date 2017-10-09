@@ -15,6 +15,7 @@ Plug 'tpope/vim-commentary'
 
 " Git support
 Plug 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -101,6 +102,8 @@ let g:neomake_python_pycodestyle_maker = {
 
 " easy align:
 vmap <Enter> <Plug>(EasyAlign)
+
+let g:signify_vcs_list = [ 'git', 'svn' ]
 
 let g:deoplete#enable_at_startup = 1
 let g:SuperTabDefaultCompletionType = '<C-n>'
