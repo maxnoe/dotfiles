@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'majutsushi/tagbar'
 
 Plug 'terryma/vim-multiple-cursors'
 
@@ -111,6 +112,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " nerdtree on shift tab
 map <S-Tab> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 
 " start nerdtree if no files are given
 autocmd StdinReadPre * let s:std_in=1
