@@ -42,3 +42,16 @@ TF_ALIAS=fuck alias fuck='eval $(/usr/bin/thefuck $(fc -ln -1)); history -r'
 
 envoy -t ssh-agent id_rsa id_rsa.phido
 eval $(envoy -p)
+
+if [ -f ~/.local/root6/bin/thisroot.sh ]; then
+	source ~/.local/root6/bin/thisroot.sh
+fi
+
+export GAMMALIB=$HOME/.local/gammalib
+if [ -f $GAMMALIB/bin/gammalib-init.sh ]; then
+	source $GAMMALIB/bin/gammalib-init.sh
+fi
+export CTOOLS=$HOME/.local/ctools
+if [ -f $CTOOLS/bin/ctools-init.sh ]; then
+	source $CTOOLS/bin/ctools-init.sh
+fi
