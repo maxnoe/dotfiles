@@ -1,1 +1,2 @@
-/home/maxnoe/.config/termite/base16-default-dark.config
+[options]
+font = Fira Mono for Powerline
