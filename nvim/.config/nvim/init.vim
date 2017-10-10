@@ -1,6 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
 
-
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
@@ -22,6 +21,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Making and Code checkers
 Plug 'benekastah/neomake'
+Plug 'milkypostman/vim-togglelist'
 
 " Auto-completion
 Plug 'ervandew/supertab'
@@ -58,9 +58,9 @@ set t_vb=
 let mapleader = ' '
 
 
-let g:pymode_rope=0 " do not use rope (conflicts with deoplete)
+let g:pymode_lint=0 " using neomake for linting
+let g:pymode_rope=0 " using deoplete for auto-completion
 let g:pymode_python='python3'
-let pymode_lint_checkers = [] " Use neomake for checkers
 
 " set default syntax to latex for .tex files:
 let g:tex_flavor = "latex"
@@ -79,7 +79,6 @@ autocmd BufNewFile,BufRead *.cls set ft=tex
 " enable Neomake on open and write but not on exit
 autocmd! BufWritePost,BufReadPost * Neomake
 autocmd! QuitPre * let g:neomake_verbose = 0
-let g:neomake_open_list = 2
 highlight NeoMakeErrorSign ctermfg=196
 highlight NeoMakeError ctermfg=196
 highlight NeoMakeWarningSign ctermfg=226
@@ -101,7 +100,7 @@ let g:neomake_python_pycodestyle_maker = {
 " easy align:
 vmap <Enter> <Plug>(EasyAlign)
 
-let g:signify_vcs_list = [ 'git', 'svn' ]
+let g:signify_vcs_list = ['git', 'svn']
 
 let g:deoplete#enable_at_startup = 1
 let g:SuperTabDefaultCompletionType = '<C-n>'
