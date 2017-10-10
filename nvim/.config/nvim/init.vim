@@ -45,6 +45,7 @@ let base16colorspace=256
 colorscheme base16-default-dark
 
 " General Settings
+set number
 set ignorecase
 set smartcase
 set scrolloff=5
