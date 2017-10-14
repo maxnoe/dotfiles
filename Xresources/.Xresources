@@ -1,6 +1,6 @@
 Xft.dpi: 180
 
-URxvt*saveLines: 100000
+URxvt*saveLines: 10000
 URxvt*scrollBar: false
 URxvt*secondaryScroll: true
 URxvt.letterSpace: 1
