@@ -23,10 +23,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'benekastah/neomake'
 Plug 'milkypostman/vim-togglelist'
 
-" Auto-completion
+" IDE Stuff
 Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
+Plug 'carlitux/deoplete-ternjs'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -87,6 +88,7 @@ let g:pymode_lint_checkers=[]
 " python linting
 autocmd! BufWritePost,BufEnter * Neomake
 autocmd! QuitPre * let g:neomake_verbose = 0
+
 highlight NeoMakeErrorSign ctermfg=196
 highlight NeoMakeError ctermfg=196
 highlight NeoMakeWarningSign ctermfg=226
