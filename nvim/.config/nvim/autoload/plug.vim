@@ -797,23 +797,12 @@ function! s:bang(cmd, ...)
     " FIXME: Escaping is incomplete. We could use shellescape with eval,
     "        but it won't work on Windows.
     let cmd = a:0 ? s:with_cd(a:cmd, a:1) : a:cmd
-<<<<<<< 2bad97059f4971b7c93f3c944d4d1b5a19eca3ed
-    if s:is_win
-      let batchfile = tempname().'.bat'
-      call writefile(['@echo off', cmd], batchfile)
-      let cmd = batchfile
-    endif
-    let g:_plug_bang = (s:is_win && has('gui_running') ? 'silent ' : '').'!'.escape(cmd, '#!%')
-||||||| merged common ancestors
-    let g:_plug_bang = '!'.escape(cmd, '#!%')
-=======
     if s:is_win
       let batchfile = tempname().'.bat'
       call writefile(["@echo off\r", cmd . "\r"], batchfile)
       let cmd = batchfile
     endif
     let g:_plug_bang = (s:is_win && has('gui_running') ? 'silent ' : '').'!'.escape(cmd, '#!%')
->>>>>>> Update plug
     execute "normal! :execute g:_plug_bang\<cr>\<cr>"
   finally
     unlet g:_plug_bang
@@ -1205,24 +1194,12 @@ function! s:spawn(name, cmd, opts)
             \ 'batchfile': (s:is_win && (s:nvim || s:vim8)) ? tempname().'.bat' : '',
             \ 'new': get(a:opts, 'new', 0) }
   let s:jobs[a:name] = job
-<<<<<<< 2bad97059f4971b7c93f3c944d4d1b5a19eca3ed
-  let cmd = has_key(a:opts, 'dir') ? s:with_cd(a:cmd, a:opts.dir) : a:cmd
-  if !empty(job.batchfile)
-    call writefile(['@echo off', cmd], job.batchfile)
-    let cmd = job.batchfile
-  endif
-  let argv = add(s:is_win ? ['cmd', '/c'] : ['sh', '-c'], cmd)
-||||||| merged common ancestors
-  let argv = add(s:is_win ? ['cmd', '/c'] : ['sh', '-c'],
-               \ has_key(a:opts, 'dir') ? s:with_cd(a:cmd, a:opts.dir) : a:cmd)
-=======
   let cmd = has_key(a:opts, 'dir') ? s:with_cd(a:cmd, a:opts.dir) : a:cmd
   if !empty(job.batchfile)
     call writefile(["@echo off\r", cmd . "\r"], job.batchfile)
     let cmd = job.batchfile
   endif
   let argv = add(s:is_win ? ['cmd', '/c'] : ['sh', '-c'], cmd)
->>>>>>> Update plug
 
   if s:nvim
     call extend(job, {
@@ -2044,20 +2021,11 @@ function! s:system(cmd, ...)
   try
     let [sh, shellcmdflag, shrd] = s:chsh(1)
     let cmd = a:0 > 0 ? s:with_cd(a:cmd, a:1) : a:cmd
-<<<<<<< 2bad97059f4971b7c93f3c944d4d1b5a19eca3ed
-    if s:is_win
-      let batchfile = tempname().'.bat'
-      call writefile(['@echo off', cmd], batchfile)
-      let cmd = batchfile
-    endif
-||||||| merged common ancestors
-=======
     if s:is_win
       let batchfile = tempname().'.bat'
       call writefile(["@echo off\r", cmd . "\r"], batchfile)
       let cmd = batchfile
     endif
->>>>>>> Update plug
     return system(s:is_win ? '('.cmd.')' : cmd)
   finally
     let [&shell, &shellcmdflag, &shellredir] = [sh, shellcmdflag, shrd]
@@ -2384,25 +2352,6 @@ function! s:preview_commit()
     wincmd P
   endif
   setlocal previewwindow filetype=git buftype=nofile nobuflisted modifiable
-<<<<<<< 2bad97059f4971b7c93f3c944d4d1b5a19eca3ed
-  try
-    let [sh, shellcmdflag, shrd] = s:chsh(1)
-    let cmd = 'cd '.s:shellesc(g:plugs[name].dir).' && git show --no-color --pretty=medium '.sha
-    if s:is_win
-      let batchfile = tempname().'.bat'
-      call writefile(['@echo off', cmd], batchfile)
-      let cmd = batchfile
-    endif
-    execute 'silent %!' cmd
-  finally
-    let [&shell, &shellcmdflag, &shellredir] = [sh, shellcmdflag, shrd]
-    if s:is_win
-      call delete(batchfile)
-    endif
-  endtry
-||||||| merged common ancestors
-  execute 'silent %!cd' s:shellesc(g:plugs[name].dir) '&& git show --no-color --pretty=medium' sha
-=======
   try
     let [sh, shellcmdflag, shrd] = s:chsh(1)
     let cmd = 'cd '.s:shellesc(g:plugs[name].dir).' && git show --no-color --pretty=medium '.sha
@@ -2418,7 +2367,6 @@ function! s:preview_commit()
       call delete(batchfile)
     endif
   endtry
->>>>>>> Update plug
   setlocal nomodifiable
   nnoremap <silent> <buffer> q :q<cr>
   wincmd p
