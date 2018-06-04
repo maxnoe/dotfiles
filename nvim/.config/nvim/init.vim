@@ -27,6 +27,7 @@ Plug 'milkypostman/vim-togglelist'
 Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
+Plug 'carlitux/deoplete-ternjs'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -37,6 +38,7 @@ Plug 'tpope/vim-markdown'
 
 " colors
 Plug 'chriskempson/base16-vim'
+Plug 'gisraptor/vim-lilypond-integrator'
 
 call plug#end()
 
@@ -59,9 +61,13 @@ set t_vb=
 let mapleader = ' '
 
 
+let g:python_host_prog = "/home/maxnoe/.local/anaconda3/envs/neovim2/bin/python"
+let g:python3_host_prog = "/home/maxnoe/.local/anaconda3/envs/neovim3/bin/python"
+
 let g:pymode_lint=0 " using neomake for linting
 let g:pymode_rope=0 " using deoplete for auto-completion
-let g:pymode_python='python3'
+
+let g:deoplete#sources#jedi#server_timeout=30
 
 " set default syntax to latex for .tex files:
 let g:tex_flavor = "latex"
