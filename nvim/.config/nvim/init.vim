@@ -23,7 +23,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'benekastah/neomake'
 Plug 'milkypostman/vim-togglelist'
 
-" Auto-completion
+" IDE Stuff
 Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
@@ -85,7 +85,15 @@ autocmd BufNewFile,BufRead *.cls set ft=tex
 
 " enable Neomake on open and write but not on exit
 autocmd! BufWritePost,BufReadPost * Neomake
+
+let g:pymode_rope = 0
+let g:pymode_lint_write = 0
+let g:pymode_lint_checkers=[]
+
+" python linting
+autocmd! BufWritePost,BufEnter * Neomake
 autocmd! QuitPre * let g:neomake_verbose = 0
+
 highlight NeoMakeErrorSign ctermfg=196
 highlight NeoMakeError ctermfg=196
 highlight NeoMakeWarningSign ctermfg=226
@@ -103,6 +111,9 @@ let g:neomake_python_pycodestyle_maker = {
     \ 'postprocess': function('SetWarningType')
     \ }
 
+let g:neomake_cpp_gcc_maker = {
+    \ 'args': [ '--std=c++14', '-fsyntax-only', '-Wall', '-Wextra', '-pedantic']
+    \ }
 
 " easy align:
 vmap <Enter> <Plug>(EasyAlign)
