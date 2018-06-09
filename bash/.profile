@@ -1,5 +1,4 @@
-export PATH="$HOME/.gem/ruby/2.4.0/bin:$PATH"
-export PATH="$HOME/.local/anaconda3/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 export PATH="$HOME/.local/texlive/2017/bin/x86_64-linux:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/go/bin:$PATH"

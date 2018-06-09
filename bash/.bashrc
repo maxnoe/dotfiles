@@ -23,7 +23,7 @@ alias golight="source $HOME/.config/base16-shell/scripts/base16-default-light.sh
 godark
 
 export EDITOR=nvim
-export BROWSER=google-chrome-stable
+export BROWSER=firefox
 
 eval `dircolors ~/.dircolors`
 
@@ -45,9 +45,6 @@ TF_ALIAS=fuck alias fuck='eval $(/usr/bin/thefuck $(fc -ln -1)); history -r'
 # added by travis gem
 [ -f $HOME.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-envoy -t ssh-agent id_rsa id_rsa.phido
-eval $(envoy -p)
-
 if [ -f ~/.local/root6/bin/thisroot.sh ]; then
 	source ~/.local/root6/bin/thisroot.sh
 fi
@@ -60,3 +57,6 @@ export CTOOLS=$HOME/.local/ctools
 if [ -f $CTOOLS/bin/ctools-init.sh ]; then
 	source $CTOOLS/bin/ctools-init.sh
 fi
+
+. $HOME/.local/anaconda3/etc/profile.d/conda.sh
+conda activate
