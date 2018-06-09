@@ -1,4 +1,4 @@
-Xft.dpi: 180
+Xft.dpi: 210
 
 URxvt*saveLines: 10000
 URxvt*scrollBar: false
@@ -6,12 +6,12 @@ URxvt*secondaryScroll: true
 URxvt.letterSpace: 1
 
 ! Fonts
-URxvt*font: xft:Fira Mono for Powerline:antialias=true:size=12:medium
-URxvt*boldFont: xft:Fira Mono for Powerline:antialias=true:size=12:style=bold
-URxvt*italicFont: xft:Fira Mono for Powerline:antialias=true:size=12:style=italic
-URxvt*boldItatlicFont: xft:Fira Mono for Powerline:antialias=true:size=12:style=bolditalic
+URxvt*font: xft:Fira Mono for Powerline:antialias=true:size=10:medium
+URxvt*boldFont: xft:Fira Mono for Powerline:antialias=true:size=10:style=bold
+URxvt*italicFont: xft:Fira Mono for Powerline:antialias=true:size=10:style=italic
+URxvt*boldItatlicFont: xft:Fira Mono for Powerline:antialias=true:size=10:style=bolditalic
 
-URxvt*url-launcher: google-chrome-stable
+URxvt*url-launcher: firefox
 URxvt*matcher.button: 1
 URxvt*colorUL: #4682B4
 
