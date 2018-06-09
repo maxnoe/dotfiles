@@ -30,7 +30,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs'
 
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'maxnoe/vim-snippets'
 
 " language support
 Plug 'klen/python-mode', {'branch': 'develop'}
@@ -47,6 +47,8 @@ let base16colorspace=256
 colorscheme base16-default-dark
 
 " General Settings
+set tabstop=4
+set shiftwidth=4
 set number
 set ignorecase
 set smartcase
@@ -67,7 +69,6 @@ let g:python3_host_prog = "/home/maxnoe/.local/anaconda3/envs/neovim3/bin/python
 let g:pymode_lint=0 " using neomake for linting
 let g:pymode_rope=0 " using deoplete for auto-completion
 
-let g:deoplete#sources#jedi#server_timeout=30
 
 " set default syntax to latex for .tex files:
 let g:tex_flavor = "latex"
@@ -120,10 +121,15 @@ vmap <Enter> <Plug>(EasyAlign)
 
 let g:signify_vcs_list = ['git', 'svn']
 
+let g:neomake_warning_sign={'text': '.'}
+
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#server_timeout = 30
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
+let g:ultisnips_python_style="numpy"
+let g:ultisnips_python_quoting_style="single"
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
