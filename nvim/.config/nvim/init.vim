@@ -1,19 +1,21 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
 
 Plug 'terryma/vim-multiple-cursors'
 
 " Make stuff easier
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Git support
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'mhinz/vim-signify'
 
 Plug 'vim-airline/vim-airline'
@@ -24,6 +26,7 @@ Plug 'benekastah/neomake'
 Plug 'milkypostman/vim-togglelist'
 
 " IDE Stuff
+Plug 'yggdroot/indentline'
 Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
@@ -33,8 +36,10 @@ Plug 'SirVer/ultisnips'
 Plug 'maxnoe/vim-snippets'
 
 " language support
-Plug 'klen/python-mode', {'branch': 'develop'}
 Plug 'tpope/vim-markdown'
+Plug 'vim-python/python-syntax'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
 
 " colors
 Plug 'chriskempson/base16-vim'
@@ -66,12 +71,6 @@ let mapleader = ' '
 let g:python_host_prog = "/home/maxnoe/.local/anaconda3/envs/neovim2/bin/python"
 let g:python3_host_prog = "/home/maxnoe/.local/anaconda3/envs/neovim3/bin/python"
 
-let g:pymode_lint=0 " using neomake for linting
-let g:pymode_rope=0 " using deoplete for auto-completion
-
-
-" set default syntax to latex for .tex files:
-let g:tex_flavor = "latex"
 
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
@@ -82,7 +81,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " tex 
+let g:tex_flavor = "latex"
 autocmd BufNewFile,BufRead *.cls set ft=tex
+autocmd BufNewFile,BufRead *.tex IndentLinesDisable
 
 " enable Neomake on open and write but not on exit
 autocmd! BufWritePost,BufReadPost * Neomake
@@ -108,7 +109,7 @@ endfunction
 let g:neomake_tex_enabled_makers = []
 let g:neomake_python_enabled_makers = ['pycodestyle', 'pyflakes']
 let g:neomake_python_pycodestyle_maker = {
-    \ 'args': ['--max-line-length=90', '--ignore=E741' ],
+    \ 'args': ['--max-line-length=90', '--ignore=E741,W503' ],
     \ 'postprocess': function('SetWarningType')
     \ }
 
@@ -119,9 +120,15 @@ let g:neomake_cpp_gcc_maker = {
 " easy align:
 vmap <Enter> <Plug>(EasyAlign)
 
+let g:python_highlight_all = 1
+
 let g:signify_vcs_list = ['git', 'svn']
 
 let g:neomake_warning_sign={'text': '.'}
+
+let g:markdown_syntax_conceal = 0
+
+let g:indentLine_char = '┆'
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#server_timeout = 30
@@ -135,7 +142,7 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " nerdtree on shift tab
-map <S-Tab> :NERDTreeToggle<CR>
+map <S-Tab> :NERDTreeTabsToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " start nerdtree if no files are given
