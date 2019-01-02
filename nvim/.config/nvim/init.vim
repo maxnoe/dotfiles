@@ -102,7 +102,7 @@ highlight NeoMakeWarningSign ctermfg=226
 highlight NeoMakeWarning ctermfg=226
 
 " python linting
-function SetWarningType(entry)
+function! SetWarningType(entry)
     let a:entry.type = 'W'
 endfunction
 
