@@ -68,8 +68,8 @@ set t_vb=
 let mapleader = ' '
 
 
-let g:python_host_prog = "/home/maxnoe/.local/anaconda3/envs/neovim2/bin/python"
-let g:python3_host_prog = "/home/maxnoe/.local/anaconda3/envs/neovim3/bin/python"
+let g:python_host_prog = $HOME . "/.local/anaconda3/envs/neovim2/bin/python"
+let g:python3_host_prog = $HOME . "/.local/anaconda3/envs/neovim3/bin/python"
 
 
 " Clear highlighting on escape in normal mode
