@@ -1,24 +1,19 @@
 URxvt*saveLines: 10000
 URxvt*scrollBar: false
-URxvt*foreground: white
-URxvt*background: rgba:0000/0000/0000/ffff
-URxvt*transparent: true
-URxvt*tintColor: #808080
-URxvt*fading: 0
-URxvt*fadecolor: black
 URxvt*secondaryScroll: true
+URxvt.letterSpace: 1
 
 ! Fonts
-URxvt*font: xft:Deja Vu Sans Mono for Powerline:antialias=true:size=12
-URxvt*boldFont: xft:Deja Vu Sans Mono for Powerline:antialias=true:size=12:style=bold
-URxvt*italicFont: xft:Deja Vu Sans Mono for Powerline:antialias=true:size=12:style=italic
-URxvt*boldItatlicFont: xft:Deja Vu Sans Mono for Powerline:antialias=true:size=12:style=bolditalic
+URxvt*font: xft:Fira Mono for Powerline:antialias=true:size=10:medium
+URxvt*boldFont: xft:Fira Mono for Powerline:antialias=true:size=10:style=bold
+URxvt*italicFont: xft:Fira Mono for Powerline:antialias=true:size=10:style=italic
+URxvt*boldItatlicFont: xft:Fira Mono for Powerline:antialias=true:size=10:style=bolditalic
 
-URxvt*url-launcher: google-chrome-stable
+URxvt*url-launcher: firefox
 URxvt*matcher.button: 1
 URxvt*colorUL: #4682B4
 
-!font-size extension:
+! font-size extension:
 URxvt.perl-ext-common: default,matcher,font-size,clipboard
 URxvt.keysym.C-plus: font-size:incglobal
 URxvt.keysym.C-minus: font-size:decglobal
@@ -27,20 +22,3 @@ URxvt.keysym.C-minus: font-size:decglobal
 URxvt*iso14755: false
 URxvt*keysym.C-C: clipboard:copy
 URxvt*keysym.C-V: clipboard:paste
-
-urxvt.color0:           #000000
-urxvt.color1:           #a40000
-urxvt.color2:           #4E9A06
-urxvt.color3:           #C4A000
-urxvt.color4:           #3465A4
-urxvt.color5:           #75507B
-urxvt.color6:           #ce5c00
-urxvt.color7:           #babdb9
-urxvt.color8:           #555753
-urxvt.color9:           #EF2929
-urxvt.color10:          #8AE234
-urxvt.color11:          #FCE94F
-urxvt.color12:          #729FCF
-urxvt.color13:          #AD7FA8
-urxvt.color14:          #fcaf3e
-urxvt.color15:          #EEEEEC

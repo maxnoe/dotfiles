@@ -10,3 +10,7 @@
 	excludesfile = /home/maxnoe/.gitignore_global
 [alias]
 	graph = log --graph --all --decorate
+	diffs = diff --staged
+	s = status -s
+[merge]
+	conflictstyle = diff3
