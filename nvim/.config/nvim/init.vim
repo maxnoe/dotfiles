@@ -8,7 +8,7 @@ Plug 'majutsushi/tagbar'
 Plug 'terryma/vim-multiple-cursors'
 
 " Make stuff easier
-Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-endwise'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
