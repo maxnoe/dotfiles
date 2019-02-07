@@ -9,6 +9,7 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Make stuff easier
 Plug 'tpope/vim-endwise'
+Plug 'Raimondi/delimitMate'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
