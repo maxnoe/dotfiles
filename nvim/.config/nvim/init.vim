@@ -41,6 +41,7 @@ Plug 'tpope/vim-markdown'
 Plug 'vim-python/python-syntax'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
+Plug 'JuliaEditorSupport/julia-vim'
 
 " colors
 Plug 'chriskempson/base16-vim'
@@ -69,8 +70,7 @@ set t_vb=
 let mapleader = ' '
 
 
-let g:python_host_prog = $HOME . "/.local/anaconda3/envs/neovim2/bin/python"
-let g:python3_host_prog = $HOME . "/.local/anaconda3/envs/neovim3/bin/python"
+let g:python3_host_prog = $HOME . '/.local/venvs/neovim3/bin/python'
 
 
 " Clear highlighting on escape in normal mode
@@ -111,7 +111,12 @@ let g:neomake_tex_enabled_makers = []
 let g:neomake_python_enabled_makers = ['pycodestyle', 'pyflakes']
 let g:neomake_python_pycodestyle_maker = {
     \ 'args': ['--max-line-length=90', '--ignore=E741,W503' ],
-    \ 'postprocess': function('SetWarningType')
+    \ 'postprocess': function('SetWarningType'),
+	\ 'exe': $HOME . '/.local/venvs/neovim3/bin/pycodestyle'
+    \ }
+
+let g:neomake_python_pyflakes_maker = {
+	\ 'exe': $HOME . '/.local/venvs/neovim3/bin/pyflakes'
     \ }
 
 let g:neomake_cpp_gcc_maker = {
