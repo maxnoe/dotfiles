@@ -109,6 +109,7 @@ endfunction
 
 let g:neomake_tex_enabled_makers = []
 let g:neomake_python_enabled_makers = ['pycodestyle', 'pyflakes']
+let g:neomake_cpp_enabled_makers = ['gxx']
 let g:neomake_python_pycodestyle_maker = {
     \ 'args': ['--max-line-length=90', '--ignore=E741,W503' ],
     \ 'postprocess': function('SetWarningType'),
@@ -119,7 +120,8 @@ let g:neomake_python_pyflakes_maker = {
 	\ 'exe': $HOME . '/.local/venvs/neovim3/bin/pyflakes'
     \ }
 
-let g:neomake_cpp_gcc_maker = {
+let g:neomake_cpp_gxx_maker = {
+	\ 'exe': 'g++',
     \ 'args': [ '--std=c++14', '-fsyntax-only', '-Wall', '-Wextra', '-pedantic']
     \ }
 
@@ -137,7 +139,7 @@ let g:markdown_syntax_conceal = 0
 let g:indentLine_char = '┆'
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#server_timeout = 30
+let g:deoplete#sources#jedi#server_timeout = 60
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
