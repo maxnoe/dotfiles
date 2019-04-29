@@ -4,6 +4,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
+Plug 'KabbAmine/vCoolor.vim'
 
 Plug 'terryma/vim-multiple-cursors'
 
@@ -100,6 +101,7 @@ highlight NeoMakeErrorSign ctermfg=196
 highlight NeoMakeError ctermfg=196
 highlight NeoMakeWarningSign ctermfg=226
 highlight NeoMakeWarning ctermfg=226
+let g:neomake_warning_sign={'text': '.'}
 
 " python linting
 function! SetWarningType(entry)
@@ -123,8 +125,6 @@ vmap <Enter> <Plug>(EasyAlign)
 let g:python_highlight_all = 1
 
 let g:signify_vcs_list = ['git', 'svn']
-
-let g:neomake_warning_sign={'text': '.'}
 
 let g:markdown_syntax_conceal = 0
 
