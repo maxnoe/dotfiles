@@ -9,7 +9,8 @@ Plug 'KabbAmine/vCoolor.vim'
 Plug 'terryma/vim-multiple-cursors'
 
 " Make stuff easier
-Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-endwise'
+Plug 'Raimondi/delimitMate'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
