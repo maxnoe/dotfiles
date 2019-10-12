@@ -59,4 +59,6 @@ if [ -f $CTOOLS/bin/ctools-init.sh ]; then
 fi
 
 . $HOME/.local/anaconda3/etc/profile.d/conda.sh
-conda activate
+
+eval "$(pyenv init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=0
