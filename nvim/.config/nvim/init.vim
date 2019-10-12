@@ -70,7 +70,7 @@ set t_vb=
 let mapleader = ' '
 
 
-let g:python3_host_prog = $HOME . '/.local/venvs/neovim3/bin/python'
+let g:python3_host_prog = $HOME . '/.local/venvs/neovim/bin/python'
 
 
 " Clear highlighting on escape in normal mode
@@ -113,11 +113,11 @@ let g:neomake_cpp_enabled_makers = ['gxx']
 let g:neomake_python_pycodestyle_maker = {
     \ 'args': ['--max-line-length=90', '--ignore=E741,W503' ],
     \ 'postprocess': function('SetWarningType'),
-	\ 'exe': $HOME . '/.local/venvs/neovim3/bin/pycodestyle'
+	\ 'exe': $HOME . '/.local/venvs/neovim/bin/pycodestyle'
     \ }
 
 let g:neomake_python_pyflakes_maker = {
-	\ 'exe': $HOME . '/.local/venvs/neovim3/bin/pyflakes'
+	\ 'exe': $HOME . '/.local/venvs/neovim/bin/pyflakes'
     \ }
 
 let g:neomake_cpp_gxx_maker = {
