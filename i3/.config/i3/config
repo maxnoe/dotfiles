@@ -20,7 +20,7 @@ font pango: Fira Code, Font Awesome 5 Free, Font Awesome 5 Brands, 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 bindsym XF86MonBrightnessDown exec "light -U 5"
 bindsym XF86MonBrightnessUp exec "light -A 5"
