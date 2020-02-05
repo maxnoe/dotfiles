@@ -42,6 +42,8 @@ Plug 'vim-python/python-syntax'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'chr4/nginx.vim'
+Plug 'cespare/vim-toml'
 
 " colors
 Plug 'chriskempson/base16-vim'
