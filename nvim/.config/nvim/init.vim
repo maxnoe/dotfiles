@@ -139,6 +139,7 @@ let g:markdown_syntax_conceal = 0
 let g:indentLine_char = '┆'
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 0
 let g:deoplete#sources#jedi#server_timeout = 60
 let g:SuperTabDefaultCompletionType = '<C-n>'
 

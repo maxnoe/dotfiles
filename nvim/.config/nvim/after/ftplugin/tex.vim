@@ -5,3 +5,4 @@ set expandtab
 set shiftround
 set linebreak
 set makeprg=latexmk
+setlocal spell
