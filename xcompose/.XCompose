@@ -135,6 +135,8 @@ include "%L"
 <Multi_key> <U017F> <t>		: "ﬅ"  UFB05	   # LATIN SMALL LIGATURE LONG S T
 # ß is already available as <s><s> I think.  But now it comes in industrial size!
 <Multi_key> <S> <S> 		: "ẞ"  U1E9E	   # LATIN CAPITAL LETTER SHARP S
+<Multi_key> <s> <s> 		: "ß"  U00DF	   # LATIN SMALL LETTER SHARP S
+<Multi_key> <s> <z> 		: "ß"  U00DF	   # LATIN SMALL LETTER SHARP S
 # Eventually we'll have to look over the really crazy-cakes Latin letters 
 # they're adding as "mediævalist extensions"
 # ꜢꜣꜤꜥ for the Egyptologists, Ꝏꝏ because they're cꝏl...  Maybe some others.
