@@ -32,6 +32,7 @@ Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'SirVer/ultisnips'
 Plug 'maxnoe/vim-snippets'
@@ -44,10 +45,10 @@ Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'chr4/nginx.vim'
 Plug 'cespare/vim-toml'
+Plug 'gisraptor/vim-lilypond-integrator'
 
 " colors
 Plug 'chriskempson/base16-vim'
-Plug 'gisraptor/vim-lilypond-integrator'
 
 call plug#end()
 
