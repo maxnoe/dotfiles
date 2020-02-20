@@ -33,6 +33,7 @@ Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'SirVer/ultisnips'
 Plug 'maxnoe/vim-snippets'
@@ -42,6 +43,9 @@ Plug 'tpope/vim-markdown'
 Plug 'vim-python/python-syntax'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
+Plug 'chr4/nginx.vim'
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'cespare/vim-toml'
 
 " colors
 Plug 'chriskempson/base16-vim'
@@ -70,8 +74,7 @@ set t_vb=
 let mapleader = ' '
 
 
-let g:python_host_prog = $HOME . "/.local/anaconda3/envs/neovim2/bin/python"
-let g:python3_host_prog = $HOME . "/.local/anaconda3/envs/neovim3/bin/python"
+let g:python3_host_prog = $HOME . "/.local/venvs/neovim/bin/python"
 
 
 " Clear highlighting on escape in normal mode
