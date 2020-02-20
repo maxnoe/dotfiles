@@ -10,7 +10,13 @@
 	excludesfile = /home/maxnoe/.gitignore_global
 [alias]
 	graph = log --graph --all --decorate
+	merges = log --merges --first-parent master
 	diffs = diff --staged
 	s = status -s
 [merge]
 	conflictstyle = diff3
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
