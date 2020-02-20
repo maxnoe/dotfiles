@@ -33,32 +33,12 @@ complete -cf man
 source $HOME/.bash_prompt
 source $HOME/.bash_functions
 
-
-if [ -f ~/.git-completion.bash ]; then
-	  . ~/.git-completion.bash
-fi
-
-
-
-TF_ALIAS=fuck alias fuck='eval $(/usr/bin/thefuck $(fc -ln -1)); history -r'
-
-# added by travis gem
+[ -f ~/.git-completion.bash ] && source $HOME/.git-completion.bash
 [ -f $HOME.travis/travis.sh ] && source $HOME/.travis/travis.sh
+[ -f ~/.local/root6/bin/thisroot.sh ] && source $HOME/.local/root6/bin/thisroot.sh
+[ -f $HOME/.local/anaconda3/etc/profile.d/conda.sh ] && source $HOME/.local/anaconda3/etc/profile.d/conda.sh
 
-if [ -f ~/.local/root6/bin/thisroot.sh ]; then
-	source ~/.local/root6/bin/thisroot.sh
+if [ -x "$(command -v pyenv)" ]; then
+	eval "$(pyenv init -)"
+	export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 fi
-
-export GAMMALIB=$HOME/.local/gammalib
-if [ -f $GAMMALIB/bin/gammalib-init.sh ]; then
-	source $GAMMALIB/bin/gammalib-init.sh
-fi
-export CTOOLS=$HOME/.local/ctools
-if [ -f $CTOOLS/bin/ctools-init.sh ]; then
-	source $CTOOLS/bin/ctools-init.sh
-fi
-
-. $HOME/.local/anaconda3/etc/profile.d/conda.sh
-
-eval "$(pyenv init -)"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=0
