@@ -28,3 +28,7 @@ fi
 if type "envoy" > /dev/null; then
 	source <(envoy -p)
 fi
+
+if type "pyenv" > /dev/null; then
+	eval "$(pyenv init -)"
+fi
