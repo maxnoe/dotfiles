@@ -5,7 +5,11 @@
 #  Bunch-o-predefined colors.  Makes reading code easier than escape sequences.
 #  I don't remember where I found this.  o_O
 
-source /etc/bash_completion.d/git-prompt
+if [ -f /usr/share/git/git-prompt.sh ]; then
+	. /usr/share/git/git-prompt.sh
+elif [ -f /etc/bash_completion.d/git-prompt ]; then
+	. /etc/bash_completion.d/git-prompt.sh
+fi
 
 # Reset
 Color_Off="\[\033[0m\]"       # Text Reset
