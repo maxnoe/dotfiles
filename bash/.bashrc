@@ -42,3 +42,4 @@ if [ -x "$(command -v pyenv)" ]; then
 	eval "$(pyenv init -)"
 	export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 fi
+export PATH=$HOME/.local/bin:$PATH
