@@ -25,4 +25,6 @@ if [ -f $CTOOLS/bin/ctools-init.sh ]; then
 	source $CTOOLS/bin/ctools-init.sh
 fi
 
-source <(envoy -p)
+if type "envoy" > /dev/null; then
+	source <(envoy -p)
+fi
