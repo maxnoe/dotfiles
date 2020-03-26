@@ -74,7 +74,8 @@ set t_vb=
 let mapleader = ' '
 
 
-let g:python3_host_prog = $HOME . '/.local/venvs/neovim/bin/python'
+let g:python3_base = $HOME . "/.local/venvs/neovim/"
+let g:python3_host_prog = g:python3_base . "bin/python"
 
 
 " Clear highlighting on escape in normal mode
@@ -90,8 +91,8 @@ let g:tex_flavor = "latex"
 autocmd BufNewFile,BufRead *.cls set ft=tex
 autocmd BufNewFile,BufRead *.tex IndentLinesDisable
 
-" enable Neomake on open and write but not on exit
-autocmd! BufWritePost,BufReadPost * Neomake
+call neomake#configure#automake('nrwi', 500)
+let g:neomake_python_flake8_exe = g:python3_base . "bin/flake8"
 
 let g:pymode_rope = 0
 let g:pymode_lint_write = 0
@@ -106,23 +107,12 @@ highlight NeoMakeError ctermfg=196
 highlight NeoMakeWarningSign ctermfg=226
 highlight NeoMakeWarning ctermfg=226
 
-" python linting
-function! SetWarningType(entry)
-    let a:entry.type = 'W'
-endfunction
-
 let g:neomake_tex_enabled_makers = []
-let g:neomake_python_enabled_makers = ['pycodestyle', 'pyflakes']
+let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_cpp_enabled_makers = ['gxx']
-let g:neomake_python_pycodestyle_maker = {
-    \ 'args': ['--max-line-length=90', '--ignore=E741,W503' ],
-    \ 'postprocess': function('SetWarningType'),
-	\ 'exe': $HOME . '/.local/venvs/neovim/bin/pycodestyle'
-    \ }
-
-let g:neomake_python_pyflakes_maker = {
-	\ 'exe': $HOME . '/.local/venvs/neovim/bin/pyflakes'
-    \ }
+" let g:neomake_python_flake8_maker.exe
+" 	\ 'exe': $HOME . '/.local/venvs/neovim/bin/flake8'
+"     \ }
 
 let g:neomake_cpp_gxx_maker = {
 	\ 'exe': 'g++',
