@@ -8,7 +8,7 @@
 if [ -f /usr/share/git/git-prompt.sh ]; then
 	. /usr/share/git/git-prompt.sh
 elif [ -f /etc/bash_completion.d/git-prompt ]; then
-	. /etc/bash_completion.d/git-prompt.sh
+	. /etc/bash_completion.d/git-prompt
 fi
 
 # Reset
