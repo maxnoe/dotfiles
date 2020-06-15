@@ -13,7 +13,6 @@ if [ -f $HOME/.local/anaconda/etc/profile.d/conda.sh ]; then
 fi
 
 if [ -f $HOME/.local/anaconda3/etc/profile.d/conda.sh ]; then
-	echo "sourcing conda"
 	source $HOME/.local/anaconda3/etc/profile.d/conda.sh
 fi
 
