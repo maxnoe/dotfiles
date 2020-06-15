@@ -8,8 +8,13 @@ alias szrc='source ~/.zshrc'
 
 alias updatetl='tlmgr update --self --all --reinstall-forcibly-removed'
 
-if [ -f $HOME/.local/anaconda/profile.d/conda.sh ]; then
+if [ -f $HOME/.local/anaconda/etc/profile.d/conda.sh ]; then
 	source $HOME/.local/anaconda/etc/profile.d/conda.sh
+fi
+
+if [ -f $HOME/.local/anaconda3/etc/profile.d/conda.sh ]; then
+	echo "sourcing conda"
+	source $HOME/.local/anaconda3/etc/profile.d/conda.sh
 fi
 
 if [ -f $HOME/.local/root6/bin/thisroot.sh ]; then

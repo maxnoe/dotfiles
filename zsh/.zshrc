@@ -1,5 +1,4 @@
 export DEFAULT_USER=maxnoe
-export PS1='%n@%m %# '
 
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
