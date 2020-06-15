@@ -54,8 +54,10 @@ Plug 'chriskempson/base16-vim'
 call plug#end()
 
 set t_Co=256
-let base16colorspace=256
-colorscheme base16-default-dark
+if filereadable(expand("~/.vimrc_background"))
+	let base16colorspace=256
+	source ~/.vimrc_background
+endif
 
 " General Settings
 set tabstop=4
