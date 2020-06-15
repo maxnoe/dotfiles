@@ -1,18 +1,15 @@
-export ZSH=/home/maxnoe/.oh-my-zsh
+export DEFAULT_USER=maxnoe
+export PS1='%n@%m %# '
 
-ZSH_THEME=""
-source ~/.powerlevel9k/powerlevel9k.zsh-theme
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context virtualenv pyenv anaconda dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs status background_jobs)
-export DEFAULT_USER="$(whoami)"
-
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
 HIST_STAMPS="yyyy-mm-dd"
 
-source $ZSH/oh-my-zsh.sh
+BASE16_SHELL="$HOME/.config/base16-shell"
+[ -n "$PS1" ] \
+	&& [ -s "$BASE16_SHELL/profile_helper.sh" ] \
+	&& eval "$("$BASE16_SHELL/profile_helper.sh")" \
+	&& source "$BASE16_SHELL/scripts/base16-default-dark.sh"
 
-eval `dircolors ~/.dircolors`
-unset LESS # undo ohmyzsh -R
-
-if [ -f $HOME/.local/anaconda3/etc/profile.d/conda.sh ]; then
-	source $HOME/.local/anaconda3/etc/profile.d/conda.sh
-fi
+eval $(dircolors $HOME/.dircolors)
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
