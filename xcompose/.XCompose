@@ -41,8 +41,10 @@ include "%L"
 <Multi_key> <grave> <grave>		: "“"	U201C		# LEFT DOUBLE QUOTATION MARK
 <Multi_key> <6> <apostrophe>		: "‘"	U2018		# LEFT SINGLE QUOTATION MARK (high 6)
 <Multi_key> <6> <quotedbl>		: "“"	U201C		# LEFT DOUBLE QUOTATION MARK (66)
+<Multi_key> <6> <6>		: "“"	U201C		# LEFT DOUBLE QUOTATION MARK (66)
 <Multi_key> <9> <apostrophe>		: "’"	U2019		# RIGHT SINGLE QUOTATION MARK (high 9)
 <Multi_key> <9> <quotedbl>		: "”"	U201D		# RIGHT DOUBLE QUOTATION MARK (99)
+<Multi_key> <9> <9>		: "”"	U201D		# RIGHT DOUBLE QUOTATION MARK (99)
 <Multi_key> <less> <9> <apostrophe>	: "‛"	U201B		# SINGLE HIGH-REVERSED-9 QUOTATION MARK
 <Multi_key> <less> <9> <quotedbl>	: "‟"	U201F		# DOUBLE HIGH-REVERSED-9 QUOTATION MARK
 <Multi_key> <comma> <apostrophe>	: "‚"	U201A		# SINGLE LOW-9 QUOTATION MARK (quote resembling a comma)
