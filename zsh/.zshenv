@@ -8,17 +8,16 @@ alias szrc='source ~/.zshrc'
 
 alias updatetl='tlmgr update --self --all --reinstall-forcibly-removed'
 
-if [ -f $HOME/.local/anaconda/etc/profile.d/conda.sh ]; then
-	source $HOME/.local/anaconda/etc/profile.d/conda.sh
-fi
+CONDA=$HOME/.local/anaconda/etc/profile.d/conda.sh
+CONDA3=$HOME/.local/anaconda3/etc/profile.d/conda.sh
+ROOT=$HOME/.local/root6/bin/thisroot.sh
 
-if [ -f $HOME/.local/anaconda3/etc/profile.d/conda.sh ]; then
-	source $HOME/.local/anaconda3/etc/profile.d/conda.sh
-fi
+for script in $CONDA $CONDA3 $ROOT; do
+	if [ -f "$script" ]; then
+		source "$script"
+	fi
+done
 
-if [ -f $HOME/.local/root6/bin/thisroot.sh ]; then
-	source $HOME/.local/root6/bin/thisroot.sh
-fi
 
 if type "envoy" > /dev/null; then
 	source <(envoy -p)
