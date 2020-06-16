@@ -1,0 +1,14 @@
+.CodeMirror {
+  font-family: 'Fira Mono', monospace;
+  font-variant-ligatures: initial;
+}
+
+.rendered_html pre {
+	background-color: #eff0f1;
+	padding: 0.5rem;
+	margin: 0rem;
+}
+
+.rendered_html pre code {
+	background-color: #eff0f1;
+}
