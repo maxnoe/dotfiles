@@ -20,5 +20,8 @@ BASE16_SHELL="$HOME/.config/base16-shell"
 eval $(dircolors $HOME/.dircolors)
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
+# equivalent to vim's smartcase
+zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
