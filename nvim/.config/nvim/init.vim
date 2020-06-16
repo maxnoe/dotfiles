@@ -69,8 +69,19 @@ set scrolloff=5
 set colorcolumn=90
 set noshowmode
 
+" highlight trailing spaces:
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+command! TrimWhitespace call TrimWhitespace()
+
 " deactivate all bells
-set noerrorbells 
+set noerrorbells
 set visualbell
 set t_vb=
 let mapleader = ' '
@@ -88,7 +99,7 @@ nnoremap <esc>^[ <esc>^[
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-" tex 
+" tex
 let g:tex_flavor = "latex"
 autocmd BufNewFile,BufRead *.cls set ft=tex
 autocmd BufNewFile,BufRead *.tex IndentLinesDisable
