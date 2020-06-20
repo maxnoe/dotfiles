@@ -25,3 +25,13 @@ zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+function open () {
+	# raise an error if the argument does not exist and is not a link
+	if [[ "$1" != http*//* && "$1" != www.* && ! -a "$1" ]]; then
+		echo "No such file or directory $1" 1>&2
+		return 1
+	fi
+
+	nohup xdg-open $1 < /dev/null 2>/dev/null >/dev/null & disown
+}
