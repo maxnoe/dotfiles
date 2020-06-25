@@ -1,5 +1,6 @@
 export EDITOR=nvim
 export BROWSER=firefox
+export GOBIN=$HOME/.local/bin
 
 alias vim=nvim
 alias gits='git status -s'
