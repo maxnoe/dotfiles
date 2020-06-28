@@ -14,6 +14,8 @@ function szrc() {
 
 alias updatetl='tlmgr update --self --all --reinstall-forcibly-removed'
 
+export PATH="$HOME/.local/bin:$PATH"
+
 CONDA=$HOME/.local/anaconda/etc/profile.d/conda.sh
 CONDA3=$HOME/.local/anaconda3/etc/profile.d/conda.sh
 ROOT=$HOME/.local/root6/bin/thisroot.sh
