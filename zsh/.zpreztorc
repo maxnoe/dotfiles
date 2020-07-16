@@ -187,7 +187,8 @@ zstyle ':prezto:module:syntax-highlighting' styles \
   'builtin' 'fg=blue' \
   'alias' 'fg=blue' \
   'command' 'fg=blue' \
-  'function' 'fg=blue'
+  'function' 'fg=blue' \
+  'comment' 'fg=242' \
 
 # Set syntax pattern styles.
 zstyle ':prezto:module:syntax-highlighting' pattern \
