@@ -47,6 +47,8 @@ Plug 'chr4/nginx.vim'
 Plug 'cespare/vim-toml'
 Plug 'gisraptor/vim-lilypond-integrator'
 Plug 'cstrahan/vim-capnp'
+Plug 'lepture/vim-jinja'
+Plug 'lervag/vimtex'
 
 " colors
 Plug 'chriskempson/base16-vim'
