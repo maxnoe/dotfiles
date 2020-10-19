@@ -60,6 +60,7 @@ if filereadable(expand("~/.vimrc_background"))
 	let base16colorspace=256
 	source ~/.vimrc_background
 endif
+set cursorline
 
 " General Settings
 set tabstop=4
@@ -68,7 +69,7 @@ set number
 set ignorecase
 set smartcase
 set scrolloff=5
-set colorcolumn=90
+set colorcolumn=80
 set noshowmode
 
 " highlight trailing spaces:
@@ -105,6 +106,9 @@ let g:airline_powerline_fonts = 1
 let g:tex_flavor = "latex"
 autocmd BufNewFile,BufRead *.cls set ft=tex
 autocmd BufNewFile,BufRead *.tex IndentLinesDisable
+
+" json
+autocmd BufNewFile,BufRead *.json IndentLinesDisable
 
 call neomake#configure#automake('nrwi', 500)
 let g:neomake_python_flake8_exe = g:python3_base . "bin/flake8"
@@ -148,7 +152,9 @@ let g:markdown_syntax_conceal = 0
 let g:indentLine_char = '┆'
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 0
+call deoplete#custom#option({
+	\ 'enable_buffer_path': v:false,
+ 	\ })
 let g:deoplete#sources#jedi#server_timeout = 60
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
