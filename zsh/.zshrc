@@ -33,5 +33,17 @@ function open () {
 		return 1
 	fi
 
-	nohup xdg-open $1 < /dev/null 2>/dev/null >/dev/null & disown
+	nohup xdg-open $1 < /dev/null 2>/dev/null >/dev/null &!
 }
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# added by travis gem
+[ ! -s /home/maxnoe/.travis/travis.sh ] || source /home/maxnoe/.travis/travis.sh
+
+
+export GAMMALIB=$HOME/.local/gammalib
+export CTOOLS=$HOME/.local/ctools
+[ ! -s $GAMMALIB/bin/gammalib-init.sh ] || source $GAMMALIB/bin/gammalib-init.sh
+[ ! -s $CTOOLS/bin/ctools-init.sh ] || source $CTOOLS/bin/ctools-init.sh
