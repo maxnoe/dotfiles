@@ -25,11 +25,14 @@ Plug 'yggdroot/indentline'
 
 " IDE Stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'yggdroot/indentline'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'maxnoe/vim-snippets'
 Plug 'cdelledonne/vim-cmake'
 
 " language support
+Plug 'bfrg/vim-cpp-modern'
 Plug 'tpope/vim-markdown'
 Plug 'vim-python/python-syntax'
 Plug 'Vimjas/vim-python-pep8-indent'
@@ -146,6 +149,9 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 command! TrimWhitespace call TrimWhitespace()
+
+
+let g:indent_blankline_space_char = ' '
 
 
 " Clear highlighting on escape in normal mode
