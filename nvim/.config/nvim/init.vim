@@ -27,6 +27,7 @@ Plug 'yggdroot/indentline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'maxnoe/vim-snippets'
+Plug 'cdelledonne/vim-cmake'
 
 " language support
 Plug 'tpope/vim-markdown'
@@ -97,6 +98,10 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
@@ -104,6 +109,15 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 " from coc-snipped readme, use tab for everything
 inoremap <silent><expr> <TAB>
@@ -119,6 +133,10 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+
+" cmake
+let g:cmake_build_options = ['-j6']
 
 
 " Remove trailing whitespace
