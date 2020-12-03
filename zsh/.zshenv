@@ -1,6 +1,7 @@
 export EDITOR=nvim
 export BROWSER=firefox
 export GOBIN=$HOME/.local/bin
+export GTEST_COLOR=1
 
 alias vim=nvim
 alias gits='git status -s'
@@ -42,3 +43,12 @@ export PATH="$HOME/.local/go/bin:$PATH"
 export PATH="$HOME/.local/texlive/2020/bin/x86_64-linux:$PATH"
 export MANPATH="$HOME/.local/texlive/2020/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="$HOME/.local/texlive/2020/texmf-dist/doc/man:$INFOPATH"
+
+# added by travis gem
+[ ! -s /home/maxnoe/.travis/travis.sh ] || source /home/maxnoe/.travis/travis.sh
+
+
+export GAMMALIB=$HOME/.local/gammalib
+export CTOOLS=$HOME/.local/ctools
+[ ! -s $GAMMALIB/bin/gammalib-init.sh ] || source $GAMMALIB/bin/gammalib-init.sh
+[ ! -s $CTOOLS/bin/ctools-init.sh ] || source $CTOOLS/bin/ctools-init.sh
