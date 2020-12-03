@@ -1,11 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'majutsushi/tagbar'
-
-Plug 'terryma/vim-multiple-cursors'
 
 " Make stuff easier
 Plug 'tpope/vim-endwise'
@@ -19,22 +13,19 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'mhinz/vim-signify'
 
+" UI
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Making and Code checkers
-Plug 'benekastah/neomake'
 Plug 'milkypostman/vim-togglelist'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'majutsushi/tagbar'
+Plug 'yggdroot/indentline'
 
 " IDE Stuff
-Plug 'yggdroot/indentline'
-Plug 'ervandew/supertab'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'carlitux/deoplete-ternjs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ludovicchabant/vim-gutentags'
-
-Plug 'SirVer/ultisnips'
 Plug 'maxnoe/vim-snippets'
 
 " language support
@@ -62,6 +53,10 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 set cursorline
 
+let g:python3_base = $HOME . "/.local/venvs/neovim/"
+let g:python3_host_prog = g:python3_base . "bin/python"
+
+
 " General Settings
 set tabstop=4
 set shiftwidth=4
@@ -72,26 +67,67 @@ set scrolloff=5
 set colorcolumn=80
 set noshowmode
 
+" deactivate all bells
+set noerrorbells
+set visualbell
+set t_vb=
+
 " highlight trailing spaces:
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+" Settings for CoC
+" Plugins
+" CocInstall coc-pyright
+" CocInstall coc-snippets
+" CocInstall coc-json
+" CocInstall coc-ccls
+set hidden
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" from coc-snipped readme, use tab for everything
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+
+" Remove trailing whitespace
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
 endfun
 command! TrimWhitespace call TrimWhitespace()
-
-" deactivate all bells
-set noerrorbells
-set visualbell
-set t_vb=
-let mapleader = ' '
-
-
-let g:python3_base = $HOME . "/.local/venvs/neovim/"
-let g:python3_host_prog = g:python3_base . "bin/python"
 
 
 " Clear highlighting on escape in normal mode
@@ -105,38 +141,8 @@ let g:airline_powerline_fonts = 1
 " tex
 let g:tex_flavor = "latex"
 autocmd BufNewFile,BufRead *.cls set ft=tex
-autocmd BufNewFile,BufRead *.tex IndentLinesDisable
-
-" json
-autocmd BufNewFile,BufRead *.json IndentLinesDisable
-
-call neomake#configure#automake('nrwi', 500)
-let g:neomake_python_flake8_exe = g:python3_base . "bin/flake8"
-
-let g:pymode_rope = 0
-let g:pymode_lint_write = 0
-let g:pymode_lint_checkers=[]
 
 " python linting
-autocmd! BufWritePost,BufEnter * Neomake
-autocmd! QuitPre * let g:neomake_verbose = 0
-
-highlight NeoMakeErrorSign ctermfg=196
-highlight NeoMakeError ctermfg=196
-highlight NeoMakeWarningSign ctermfg=226
-highlight NeoMakeWarning ctermfg=226
-
-let g:neomake_tex_enabled_makers = []
-let g:neomake_python_enabled_makers = ['flake8']
-let g:neomake_cpp_enabled_makers = ['gxx']
-" let g:neomake_python_flake8_maker.exe
-" 	\ 'exe': $HOME . '/.local/venvs/neovim/bin/flake8'
-"     \ }
-
-let g:neomake_cpp_gxx_maker = {
-	\ 'exe': 'g++',
-    \ 'args': [ '--std=c++14', '-fsyntax-only', '-Wall', '-Wextra', '-pedantic']
-    \ }
 
 " easy align:
 vmap <Enter> <Plug>(EasyAlign)
@@ -145,28 +151,18 @@ let g:python_highlight_all = 1
 
 let g:signify_vcs_list = ['git', 'svn']
 
-let g:neomake_warning_sign={'text': '.'}
-
 let g:markdown_syntax_conceal = 0
 
 let g:indentLine_char = '┆'
-
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option({
-	\ 'enable_buffer_path': v:false,
- 	\ })
-let g:deoplete#sources#jedi#server_timeout = 60
-let g:SuperTabDefaultCompletionType = '<C-n>'
+autocmd BufNewFile,BufRead *.tex IndentLinesDisable
+autocmd BufNewFile,BufRead *.json IndentLinesDisable
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:ultisnips_python_style="numpy"
 let g:ultisnips_python_quoting_style="single"
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" nerdtree on shift tab
-map <S-Tab> :NERDTreeTabsToggle<CR>
+" nerdtree on ctrl tab
+map <C-Tab> :NERDTreeTabsToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " start nerdtree if no files are given
