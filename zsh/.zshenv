@@ -36,13 +36,14 @@ if type "pyenv" > /dev/null; then
 	eval "$(pyenv init -)"
 fi
 
-export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/go/bin:$PATH"
 
-export PATH="$HOME/.local/texlive/2020/bin/x86_64-linux:$PATH"
-export MANPATH="$HOME/.local/texlive/2020/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="$HOME/.local/texlive/2020/texmf-dist/doc/man:$INFOPATH"
+export PATH="$HOME/.local/texlive/2021/bin/x86_64-linux:$PATH"
+export MANPATH="$HOME/.local/texlive/2021/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="$HOME/.local/texlive/2021/texmf-dist/doc/man:$INFOPATH"
 
 # added by travis gem
 [ ! -s /home/maxnoe/.travis/travis.sh ] || source /home/maxnoe/.travis/travis.sh
