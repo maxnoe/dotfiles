@@ -10,4 +10,4 @@ sub makeglossaries {
 }
 
 push @generated_exts, "bcf bbl";
-$clean_ext = "bcf bbl glg glo gls run.xml xdy";
+$clean_ext = "bcf bbl glg glo gls run.xml xdy snm nav";
