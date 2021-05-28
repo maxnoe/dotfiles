@@ -71,6 +71,10 @@ set scrolloff=5
 set colorcolumn=80
 set noshowmode
 
+" spell checker
+hi clear SpellBad
+hi SpellBad cterm=undercurl gui=undercurl
+
 " deactivate all bells
 set noerrorbells
 set visualbell
@@ -86,6 +90,7 @@ match ExtraWhitespace /\s\+$/
 " CocInstall coc-snippets
 " CocInstall coc-json
 " CocInstall coc-ccls
+" CocInstall coc-texlab
 set hidden
 set cmdheight=2
 set updatetime=300
@@ -110,6 +115,9 @@ nmap <silent> gr <Plug>(coc-references)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+" Fix
+nmap <leader>qf  <Plug>(coc-fix-current)
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -122,12 +130,15 @@ function! s:show_documentation()
   endif
 endfunction
 
-" from coc-snipped readme, use tab for everything
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -140,6 +151,7 @@ let g:coc_snippet_next = '<tab>'
 
 " cmake
 let g:cmake_build_options = ['-j6']
+let g:cmake_generate_options = ['-DCMAKE_EXPORT_COMPILE_COMMANDS=ON']
 
 
 " Remove trailing whitespace
@@ -186,7 +198,7 @@ let g:ultisnips_python_style="numpy"
 let g:ultisnips_python_quoting_style="single"
 
 " nerdtree on ctrl tab
-map <C-Tab> :NERDTreeTabsToggle<CR>
+map <F7> :NERDTreeTabsToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " start nerdtree if no files are given
