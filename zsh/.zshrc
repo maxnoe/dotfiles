@@ -39,3 +39,12 @@ function open () {
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+scroll-and-clear-screen() {
+  local i=1
+  while read; do ((i++)); done <<< $PS1
+  printf '\n%.0s' {$i..$LINES}
+  zle clear-screen
+}
+zle -N scroll-and-clear-screen
+bindkey '^l' scroll-and-clear-screen
