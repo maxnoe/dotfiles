@@ -15,8 +15,6 @@ function szrc() {
 
 alias updatetl='tlmgr update --self --all --reinstall-forcibly-removed'
 
-export PATH="$HOME/.local/bin:$PATH"
-
 CONDA=$HOME/.local/anaconda/etc/profile.d/conda.sh
 CONDA3=$HOME/.local/anaconda3/etc/profile.d/conda.sh
 ROOT=$HOME/.local/root6/bin/thisroot.sh
@@ -27,10 +25,6 @@ for script in $CONDA $CONDA3 $ROOT; do
 	fi
 done
 
-
-if type "envoy" > /dev/null; then
-	source <(envoy -p)
-fi
 
 if type "pyenv" > /dev/null; then
 	eval "$(pyenv init --path)"
@@ -48,3 +42,4 @@ export INFOPATH="$HOME/.local/texlive/2021/texmf-dist/doc/man:$INFOPATH"
 
 # added by travis gem
 [ ! -s /home/maxnoe/.travis/travis.sh ] || source /home/maxnoe/.travis/travis.sh
+export GTEST_COLOR=1
