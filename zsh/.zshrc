@@ -48,3 +48,5 @@ scroll-and-clear-screen() {
 }
 zle -N scroll-and-clear-screen
 bindkey '^l' scroll-and-clear-screen
+
+alias rg='kitty +kitten hyperlinked_grep'
