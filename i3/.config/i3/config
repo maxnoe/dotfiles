@@ -161,8 +161,16 @@ client.unfocused #333333 #333333 #FFFFFF #333333
 client.focused_inactive #333333 #333333 #FFFFFF #000000
 client.focused #000000 #000000 #FFFFFF #000000
 
-exec_always "nitrogen --restore"
 exec "compton -CGb"
 exec "pasystray"
 exec "setxkbmap -option compose:caps"
 exec "nextcloud"
+exec "nm-applet"
+exec "blueman-applet"
+exec "xbindkeys"
+exec "unclutter"
+exec "xset r rate 300 50"
+exec "xset -b"
+exec "udiskie -t"
+exec "feh --bg-fill /data/wallpapers/orion-nebula-2560x1440.png &"
+exec_always "nitrogen --restore"
