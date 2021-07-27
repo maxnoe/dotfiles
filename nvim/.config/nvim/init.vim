@@ -21,11 +21,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
-Plug 'yggdroot/indentline'
 
 " IDE Stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'yggdroot/indentline'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'maxnoe/vim-snippets'
