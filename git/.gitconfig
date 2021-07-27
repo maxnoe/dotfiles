@@ -7,7 +7,7 @@
 	rebase = true
 [core]
 	editor = nvim
-	excludesfile = /home/maxnoe/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [alias]
 	graph = log --graph --all --decorate
 	merges = log --merges --first-parent master
