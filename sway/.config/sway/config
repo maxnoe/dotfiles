@@ -26,6 +26,7 @@ set $menu bemenu-run | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/.local/share/Background.jpg fill
+output eDP-1 scale 3.0
 #
 # Example configuration:
 #
