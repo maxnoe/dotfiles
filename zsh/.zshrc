@@ -50,3 +50,6 @@ zle -N scroll-and-clear-screen
 bindkey '^l' scroll-and-clear-screen
 
 alias rg='kitty +kitten hyperlinked_grep'
+
+unsetopt BEEP
+unsetopt LIST_BEEP
