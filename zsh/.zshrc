@@ -53,3 +53,4 @@ alias rg='kitty +kitten hyperlinked_grep'
 
 unsetopt BEEP
 unsetopt LIST_BEEP
+alias locate='noglob plocate'
