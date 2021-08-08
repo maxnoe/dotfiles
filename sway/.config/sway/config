@@ -4,8 +4,8 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-font pango: Fira Code, Noto Color Emoji
-
+font pango: Fira Code, Font Awesome 5 Free
+default_border pixel 2
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -26,7 +26,7 @@ set $menu bemenu-run | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/.local/share/Background.jpg fill
-output eDP-1 scale 3.0
+output eDP-1 scale 2.5
 #
 # Example configuration:
 #
@@ -35,32 +35,39 @@ output eDP-1 scale 3.0
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec nm-applet --indicator
+exec udiskie --appindicator -t
+exec blueman-applet
+exec libinput-gestures
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 600 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+    timeout 600 'swaylock -f -c 000000 -i ~/.local/share/Background.jpg' \
+    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep 'playerctl pause' \
+    before-sleep 'swaylock -f -c 000000 -i ~/.local/share/Background.jpg'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
+
+ input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_options compose:caps
+    repeat_rate 50
+    repeat_delay 200
+}
+
+input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" {
+    dwt enabled
+    tap enabled
+    middle_emulation enabled
+    natural_scroll enabled
+}
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-
-input * xkb_options compose:caps
 
 ### Key bindings
 #
@@ -86,7 +93,7 @@ input * xkb_options compose:caps
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec ~/.config/sway/exit-dialog.sh
 #
 # Moving around:
 #
