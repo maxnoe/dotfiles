@@ -1,6 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
 
-
 " Make stuff easier
 Plug 'tpope/vim-endwise'
 Plug 'Raimondi/delimitMate'
