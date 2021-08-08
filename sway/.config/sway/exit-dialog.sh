@@ -1,8 +1,11 @@
 #!/bin/bash
 
-res=$(echo -e "poweroff\nreboot\nlogout" | bemenu)
+res=$(echo -e "lock\npoweroff\nreboot\nlogout" | bemenu)
 
-if [ $res == "logout" ]; then
+if [ $res == "lock" ]; then
+    playerctl pause
+    swaylock -f -c 000000 -i ~/.local/share/Background.jpg
+elif [ $res == "logout" ]; then
     swaymsg exit
 elif [ $res == "reboot" ]; then
     reboot
