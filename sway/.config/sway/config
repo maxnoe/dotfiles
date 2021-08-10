@@ -39,6 +39,7 @@ exec nm-applet --indicator
 exec udiskie --appindicator -t
 exec blueman-applet
 exec libinput-gestures
+exec gammastep-indicator
 
 ### Idle configuration
 exec swayidle -w \
