@@ -27,13 +27,16 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'maxnoe/vim-snippets'
 Plug 'cdelledonne/vim-cmake'
+Plug 'dpelle/vim-LanguageTool'
 
-" language support
+" programming language support
 Plug 'bfrg/vim-cpp-modern'
 Plug 'tpope/vim-markdown'
 Plug 'vim-python/python-syntax'
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
+Plug 'leafOfTree/vim-svelte-plugin'
+
+" Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'chr4/nginx.vim'
 Plug 'cespare/vim-toml'
@@ -77,21 +80,31 @@ set noerrorbells
 set visualbell
 set t_vb=
 
+" comments for lilypond
+autocmd FileType lilypond setlocal commentstring=%\ %s
+
 " highlight trailing spaces:
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 " Settings for CoC
 " Plugins
-" CocInstall coc-pyright
-" CocInstall coc-snippets
-" CocInstall coc-json
-" CocInstall coc-ccls
-" CocInstall coc-texlab
+" CocInstall coc-pyright coc-snippets coc-json coc-ccls coc-texlab
 set hidden
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
+
+let g:coc_global_extensions = [
+    \'coc-json',
+    \'coc-julia',
+    \'coc-pyright',
+    \'coc-rust-analyzer',
+    \'coc-snippets',
+    \'coc-tag',
+    \'coc-texlab',
+	\'coc-svelte',
+    \]
 
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -185,10 +198,6 @@ let g:python_highlight_all = 1
 let g:signify_vcs_list = ['git', 'svn']
 
 let g:markdown_syntax_conceal = 0
-
-let g:indentLine_char = '┆'
-autocmd BufNewFile,BufRead *.tex IndentLinesDisable
-autocmd BufNewFile,BufRead *.json IndentLinesDisable
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:ultisnips_python_style="numpy"
