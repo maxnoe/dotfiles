@@ -5,10 +5,8 @@
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-      "initializationOptions": {
-         "compilationDatabaseDirectory": "Debug"
-       }
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"]
     }
-  }
+  },
+  "svelte.enable-ts-plugin": true
 }
