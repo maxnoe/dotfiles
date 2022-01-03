@@ -15,6 +15,7 @@ include "%L"
 <Multi_key> <h> <minus>: "ħ" U0127
 #<Multi_key> <i> <n> <c>: "∆" U2206
 
+<Multi_key> <c> <comma> : "ç" U00E7  # LATIN SMALL CHARACTER C WITH CEDILLA
 # Custom additions: Typography
 <Multi_key> <period> <period> <period>	: "…"	U2026		# HORIZONTAL ELLIPSIS
 <Multi_key> <v> <period> <period>	: "⋮"	U22EE		# VERTICAL ELLIPSIS
