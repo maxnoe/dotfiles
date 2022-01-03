@@ -2,6 +2,7 @@ export EDITOR=nvim
 export BROWSER=firefox
 export GOBIN=$HOME/.local/bin
 export GTEST_COLOR=1
+export OSTYPE=linux-gnu
 
 alias vim=nvim
 alias gits='git status -s'
@@ -46,3 +47,4 @@ export INFOPATH="$HOME/.local/texlive/2021/texmf-dist/doc/man:$INFOPATH"
 # added by travis gem
 [ ! -s /home/maxnoe/.travis/travis.sh ] || source /home/maxnoe/.travis/travis.sh
 export GTEST_COLOR=1
+export LANGUAGE=en_US

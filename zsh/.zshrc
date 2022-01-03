@@ -49,8 +49,11 @@ scroll-and-clear-screen() {
 zle -N scroll-and-clear-screen
 bindkey '^l' scroll-and-clear-screen
 
+setopt complete_aliases
 alias rg='kitty +kitten hyperlinked_grep'
 
 unsetopt BEEP
 unsetopt LIST_BEEP
 alias locate='noglob plocate'
+alias lsd='lsd --date="+%Y-%m-%d %H:%M:%S"'
+compdef lsd='lsd'
