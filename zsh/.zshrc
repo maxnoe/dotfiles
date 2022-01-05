@@ -54,6 +54,11 @@ alias rg='kitty +kitten hyperlinked_grep'
 
 unsetopt BEEP
 unsetopt LIST_BEEP
-alias locate='noglob plocate'
-alias lsd='lsd --date="+%Y-%m-%d %H:%M:%S"'
-compdef lsd='lsd'
+if type plocate > /dev/null; then
+	alias locate='noglob plocate'
+fi
+
+if type lsd > /dev/null; then
+	alias lsd='lsd --date="+%Y-%m-%d %H:%M:%S"'
+	compdef lsd='lsd'
+fi

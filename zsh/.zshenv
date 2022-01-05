@@ -20,13 +20,13 @@ CONDA=$HOME/.local/conda/etc/profile.d/conda.sh
 ANACONDA=$HOME/.local/conda/etc/profile.d/conda.sh
 CONDA3=$HOME/.local/anaconda3/etc/profile.d/conda.sh
 ROOT=$HOME/.local/root6/bin/thisroot.sh
+CARGO="$HOME/.cargo/env"
 
-for script in $CONDA $ANACONDA $CONDA3 $ROOT; do
+for script in $CONDA $ANACONDA $CONDA3 $ROOT $CARGO; do
 	if [ -f "$script" ]; then
 		source "$script"
 	fi
 done
-
 
 if type "pyenv" > /dev/null; then
 	eval "$(pyenv init --path)"
@@ -37,6 +37,7 @@ if [ -x ruby ]; then
     export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
     export PATH="$PATH:$GEM_HOME/bin"
 fi
+
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/go/bin:$PATH"
 
@@ -45,6 +46,5 @@ export MANPATH="$HOME/.local/texlive/2021/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="$HOME/.local/texlive/2021/texmf-dist/doc/man:$INFOPATH"
 
 # added by travis gem
-[ ! -s /home/maxnoe/.travis/travis.sh ] || source /home/maxnoe/.travis/travis.sh
 export GTEST_COLOR=1
 export LANGUAGE=en_US
