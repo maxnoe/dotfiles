@@ -39,6 +39,7 @@ if [ -x ruby ]; then
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/node/bin:$PATH"
 export PATH="$HOME/.local/go/bin:$PATH"
 
 export PATH="$HOME/.local/texlive/2021/bin/x86_64-linux:$PATH"
