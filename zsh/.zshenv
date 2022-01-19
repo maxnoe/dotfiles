@@ -17,7 +17,7 @@ function szrc() {
 alias updatetl='tlmgr update --self --all --reinstall-forcibly-removed'
 
 CONDA=$HOME/.local/conda/etc/profile.d/conda.sh
-ANACONDA=$HOME/.local/conda/etc/profile.d/conda.sh
+ANACONDA=$HOME/.local/anaconda/etc/profile.d/conda.sh
 CONDA3=$HOME/.local/anaconda3/etc/profile.d/conda.sh
 ROOT=$HOME/.local/root6/bin/thisroot.sh
 CARGO="$HOME/.cargo/env"
