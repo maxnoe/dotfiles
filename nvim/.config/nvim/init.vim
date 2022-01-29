@@ -28,6 +28,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'maxnoe/vim-snippets'
 Plug 'cdelledonne/vim-cmake'
 Plug 'dpelle/vim-LanguageTool'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " programming language support
 Plug 'bfrg/vim-cpp-modern'
@@ -164,6 +165,24 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+	ensure_installed = {"python", "cpp", "rust", "javascript"},
+
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+}
+EOF
+
+" don't fold by default
+" use treesitter for folding
+set foldlevel=10
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 
 " cmake
