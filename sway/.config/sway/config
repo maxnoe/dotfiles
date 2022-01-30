@@ -39,7 +39,8 @@ exec nm-applet --indicator
 exec udiskie --appindicator -t
 exec blueman-applet
 exec libinput-gestures
-exec gammastep-indicator
+exec nextcloud --background
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ### Idle configuration
 exec swayidle -w \
@@ -83,6 +84,7 @@ input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+p exec passmenu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -94,8 +96,7 @@ input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" {
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec ~/.config/sway/exit-dialog.sh
+    bindsym $mod+Shift+e exec wlogout
 #
 # Moving around:
 #
@@ -240,3 +241,4 @@ bar {
 }
 
 include /etc/sway/config.d/*
+for_window [app_id="qt4-ssh-askpass"] floating enable

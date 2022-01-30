@@ -6,3 +6,5 @@ QT_QPA_PLATFORMTHEME=qt5ct
 CLUTTER_BACKEND=wayland
 GDK_BACKEND=wayland
 GTK_THEME=Adwaita:dark
+LANGUAGE=en_US
+PATH="/usr/NX/bin:${PATH}"
