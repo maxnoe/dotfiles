@@ -62,3 +62,4 @@ if type lsd > /dev/null; then
 	alias lsd='lsd --date="+%Y-%m-%d %H:%M:%S"'
 	compdef lsd='lsd'
 fi
+alias youtube_to_mp3='youtube-dl -x --audio-format=mp3 --audio-quality=192k'
