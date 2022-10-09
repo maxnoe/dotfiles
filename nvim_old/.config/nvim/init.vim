@@ -63,14 +63,14 @@ let g:python3_host_prog = g:python3_base . "bin/python"
 
 
 " General Settings
-set tabstop=4
-set shiftwidth=4
 set number
 set ignorecase
 set smartcase
 set scrolloff=5
 set colorcolumn=80
 set noshowmode
+set tabstop=4
+set shiftwidth=4
 
 " spell checker
 hi clear SpellBad
