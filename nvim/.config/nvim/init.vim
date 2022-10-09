@@ -107,6 +107,9 @@ let g:coc_global_extensions = [
   \'coc-tsserver',
     \]
 
+" hide tags file:
+let g:gutentags_ctags_tagfile=".tags"
+
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
