@@ -4,12 +4,15 @@ Release
 RelWithDbgInfo
 .ccls-cache
 *.swp
-__pycache__
 .idea
 *~
+.tags
+.tags.lock
+.tags.temp
 tags
 tags.lock
 tags.temp
 .python-version
 venv
 .vim
+compile_commands.json
