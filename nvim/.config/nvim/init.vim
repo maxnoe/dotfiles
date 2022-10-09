@@ -96,14 +96,15 @@ set updatetime=300
 set shortmess+=c
 
 let g:coc_global_extensions = [
-    \'coc-json',
-    \'coc-julia',
-    \'coc-pyright',
-    \'coc-rust-analyzer',
-    \'coc-snippets',
-    \'coc-tag',
-    \'coc-texlab',
+  \'coc-json',
+  \'coc-julia',
+  \'coc-pyright',
+  \'coc-rust-analyzer',
+  \'coc-snippets',
+  \'coc-tag',
+  \'coc-texlab',
 	\'coc-svelte',
+  \'coc-tsserver',
     \]
 
 
