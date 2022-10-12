@@ -25,6 +25,7 @@ o.errorbells = false
 o.visualbell = true
 o.hidden = true
 o.list = true
+o.smarttab = true
 
 wo.number = true
 wo.cursorline = true
@@ -32,72 +33,16 @@ wo.signcolumn = 'yes'
 
 bo.tabstop = 4
 bo.shiftwidth = 4
+bo.softtabstop = 0
 bo.expandtab = true
 bo.smartindent = true
 
+
+-- hide the tags file
 g.gutentags_ctags_tagfile = ".tags"
 
-
-
 -- Plugins
-
-require('packer').startup(function(use)
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        requires = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
-
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-buffer'},
-            {'hrsh7th/cmp-path'},
-            {'saadparwaiz1/cmp_luasnip'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'hrsh7th/cmp-nvim-lua'},
-
-            -- Snippets
-            {'L3MON4D3/LuaSnip'},
-            {'rafamadriz/friendly-snippets'},
-        }
-    }
-    -- General IDE stuff
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run=':TSUpdate'
-    }
-    use 'tpope/vim-endwise'
-    use 'lukas-reineke/indent-blankline.nvim'
-    use 'preservim/nerdcommenter'
-    use 'Raimondi/DelimitMate'
-    use {
-      'nvim-tree/nvim-tree.lua',
-      requires = {
-        'nvim-tree/nvim-web-devicons',
-      },
-      tag = 'nightly'
-    }
-    use 'preservim/tagbar'
-    --use {
-      --'nvim-lualine/lualine.nvim',
-      --requires = { 'nvim-tree/nvim-web-devicons'}
-    --}
-    use 'vim-airline/vim-airline'
-    use 'ludovicchabant/vim-gutentags'
-
-    -- Git
-    use 'tpope/vim-fugitive'
-    use 'junegunn/gv.vim'
-    use 'mhinz/vim-signify'
-
-    -- Syntax Plugins
-    use 'Vimjas/vim-python-pep8-indent'
-
-    -- Colors
-    use 'norcalli/nvim-base16.lua'
-end)
+require('plugins')
 
 -- Color
 local base16 = require('base16')
@@ -122,15 +67,22 @@ require('nvim-treesitter.configs').setup {
     "lua",
     "toml",
   },
+  highlight = {
+    enable = true,
+  }
 }
 
 -- More
 require("nvim-tree").setup()
 require("nvim-web-devicons").setup()
+require("lsp_signature").setup()
 --require("lualine").setup()
 
 -- show diagnostics automatically
--- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 -- Keybindings
-vim.api.nvim_set_keymap('n', '<F8>', '<cmd>TagbarToggle<CR>', {noremap=true})
+local map = vim.api.nvim_set_keymap
+local opt = {noremap=true, silent=true}
+map('n', '<F8>', '<cmd>TagbarToggle<CR>', opt)
+map('n', '<leader>qf', '<cmd>lua vim.lsp.buf.code_action({apply=true})<CR>', opt)
