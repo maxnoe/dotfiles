@@ -24,6 +24,7 @@ init_scripts=(
 	$HOME/.local/conda/etc/profile.d/mamba.sh
 	$HOME/.local/root6/bin/thisroot.sh
 	$HOME/.cargo/env
+	$HOME/.local/anaconda/etc/profile.d/mamba.sh
 )
 
 for script in $init_scripts; do
