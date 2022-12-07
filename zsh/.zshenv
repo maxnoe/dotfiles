@@ -54,3 +54,5 @@ export INFOPATH="$HOME/.local/texlive/2022/texmf-dist/doc/man:$INFOPATH"
 # added by travis gem
 export GTEST_COLOR=1
 export LANGUAGE=en_US
+export GAMMAPY_DATA="$HOME/Projects/gammapy/gammapy-datasets/dev"
+export max_print_line=2147483647
