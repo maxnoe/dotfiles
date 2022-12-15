@@ -46,6 +46,7 @@ fi
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/node/bin:$PATH"
 export PATH="$HOME/.local/go/bin:$PATH"
+export PATH="$HOME/.local/cmake/bin:$PATH"
 
 export PATH="$HOME/.local/texlive/2022/bin/x86_64-linux:$PATH"
 export MANPATH="$HOME/.local/texlive/2022/texmf-dist/doc/man:$MANPATH"
@@ -56,3 +57,7 @@ export GTEST_COLOR=1
 export LANGUAGE=en_US
 export GAMMAPY_DATA="$HOME/Projects/gammapy/gammapy-datasets/dev"
 export max_print_line=2147483647
+. "$HOME/.cargo/env"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
