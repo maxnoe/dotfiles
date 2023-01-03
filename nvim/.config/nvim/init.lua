@@ -3,6 +3,7 @@ local o = vim.o
 local wo = vim.wo
 local bo = vim.bo
 local cmd = vim.cmd
+local api = vim.api
 
 -- disable netrw at the very start of your init.lua
 -- strongly advised by file tree
@@ -26,6 +27,7 @@ o.visualbell = true
 o.hidden = true
 o.list = true
 o.smarttab = true
+o.backspace = 'indent,start'
 
 wo.number = true
 wo.cursorline = true
@@ -78,11 +80,66 @@ require("nvim-web-devicons").setup()
 require("lsp_signature").setup()
 --require("lualine").setup()
 
+-- Sync tree open/close between tabs
+local nt_api = require("nvim-tree.api")
+local tree_open = false
+local function tab_enter()
+    if tree_open then
+        nt_api.tree.open()
+        api.nvim_command("wincmd p")
+    else
+        nt_api.tree.close()
+    end
+end
+nt_api.events.subscribe(nt_api.events.Event.TreeOpen, function() tree_open=true end)
+nt_api.events.subscribe(nt_api.events.Event.TreeClose, function() tree_open=false end)
+api.nvim_create_autocmd("TabEnter,TabNewEnter", {callback=tab_enter})
+
+-- Auto-close if tree is only thing open_float
+-- from https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close#rwblokzijl
+local function tab_win_closed(winnr)
+  local api = require"nvim-tree.api"
+  local tabnr = vim.api.nvim_win_get_tabpage(winnr)
+  local bufnr = vim.api.nvim_win_get_buf(winnr)
+  local buf_info = vim.fn.getbufinfo(bufnr)[1]
+  local tab_wins = vim.tbl_filter(function(w) return w~=winnr end, vim.api.nvim_tabpage_list_wins(tabnr))
+  local tab_bufs = vim.tbl_map(vim.api.nvim_win_get_buf, tab_wins)
+  if buf_info.name:match(".*NvimTree_%d*$") then            -- close buffer was nvim tree
+    -- Close all nvim tree on :q
+    if not vim.tbl_isempty(tab_bufs) then                      -- and was not the last window (not closed automatically by code below)
+      api.tree.close()
+    end
+  else                                                      -- else closed buffer was normal buffer
+    if #tab_bufs == 1 then                                    -- if there is only 1 buffer left in the tab
+      local last_buf_info = vim.fn.getbufinfo(tab_bufs[1])[1]
+      if last_buf_info.name:match(".*NvimTree_%d*$") then       -- and that buffer is nvim tree
+        vim.schedule(function ()
+          if #vim.api.nvim_list_wins() == 1 then                -- if its the last buffer in vim
+            vim.cmd "quit"                                        -- then close all of vim
+          else                                                  -- else there are more tabs open
+            vim.api.nvim_win_close(tab_wins[1], true)             -- then close only the tab
+          end
+        end)
+      end
+    end
+  end
+end
+
+vim.api.nvim_create_autocmd("WinClosed", {
+  callback = function ()
+    local winnr = tonumber(vim.fn.expand("<amatch>"))
+    vim.schedule_wrap(tab_win_closed(winnr))
+  end,
+  nested = true
+})
+
+
 -- show diagnostics automatically
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 -- Keybindings
 local map = vim.api.nvim_set_keymap
 local opt = {noremap=true, silent=true}
+map('n', '<F7>', '<cmd>NvimTreeToggle<CR>', opt)
 map('n', '<F8>', '<cmd>TagbarToggle<CR>', opt)
 map('n', '<leader>qf', '<cmd>lua vim.lsp.buf.code_action({apply=true})<CR>', opt)
