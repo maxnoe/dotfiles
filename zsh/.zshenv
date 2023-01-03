@@ -33,11 +33,6 @@ for script in $init_scripts; do
 	fi
 done
 
-if type "pyenv" > /dev/null; then
-	eval "$(pyenv init --path)"
-	eval "$(pyenv init -)"
-fi
-
 if [ -x "$(command -v ruby)" ]; then
     export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
     export PATH="$PATH:$GEM_HOME/bin"
@@ -57,7 +52,3 @@ export GTEST_COLOR=1
 export LANGUAGE=en_US
 export GAMMAPY_DATA="$HOME/Projects/gammapy/gammapy-datasets/dev"
 export max_print_line=2147483647
-. "$HOME/.cargo/env"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
