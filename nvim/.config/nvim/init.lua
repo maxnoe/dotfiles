@@ -27,7 +27,7 @@ o.visualbell = true
 o.hidden = true
 o.list = true
 o.smarttab = true
-o.backspace = 'indent,start'
+o.backspace = 'indent,start,eol'
 
 wo.number = true
 wo.cursorline = true
@@ -49,6 +49,32 @@ require('plugins')
 -- Color
 local base16 = require('base16')
 base16(base16.themes["default-dark"], true)
+
+local theme_names = base16.theme_names()
+table.sort(theme_names)
+
+local function get_theme_names(ArgLead)
+    completions = {}
+    for i, name in pairs(theme_names) do
+        if name:find(ArgLead, 1, true) == 1 then
+            table.insert(completions, name)
+        end
+    end
+    return completions
+end
+
+api.nvim_create_user_command(
+    "Base16Set",
+    function(input)
+        local name = input["args"]
+        local theme = base16.themes[name]
+        if theme == nil then
+            error("Unknown base16 theme: " .. name)
+        end
+        base16(theme, true)
+    end,
+    {complete=get_theme_names, nargs=1, force=true}
+)
 
 -- LSP
 local lsp = require('lsp-zero')
