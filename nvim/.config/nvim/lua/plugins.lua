@@ -66,6 +66,7 @@ require('packer').startup(function(use)
 
     -- Syntax Plugins
     use 'Vimjas/vim-python-pep8-indent'
+    use 'aklt/plantuml-syntax'
 
     -- Colors
     use 'norcalli/nvim-base16.lua'
