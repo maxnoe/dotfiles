@@ -93,6 +93,7 @@ require('nvim-treesitter.configs').setup {
     "latex", "bibtex",
     "bash",
     "lua",
+    "vim",
     "toml",
   },
   highlight = {
