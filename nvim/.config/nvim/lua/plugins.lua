@@ -44,6 +44,7 @@ require('packer').startup(function(use)
     }
     use 'tpope/vim-endwise'
     use 'tpope/vim-commentary'
+    use 'tpope/vim-surround'
     use 'lukas-reineke/indent-blankline.nvim'
     use 'Raimondi/DelimitMate'
     use {
