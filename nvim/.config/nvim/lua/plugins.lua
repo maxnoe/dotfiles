@@ -13,6 +13,7 @@ local packer_bootstrap = ensure_packer()
 
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
+    -- lsp / dap / treesitter
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -34,7 +35,6 @@ require('packer').startup(function(use)
             {'rafamadriz/friendly-snippets'},
         }
     }
-    -- General IDE stuff
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -42,24 +42,21 @@ require('packer').startup(function(use)
             ts_update()
         end,
     }
+
+    use 'mfussenegger/nvim-dap'
+    -- General IDE stuff
+    use 'cdelledonne/vim-cmake'
     use 'tpope/vim-endwise'
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
     use 'lukas-reineke/indent-blankline.nvim'
     use 'Raimondi/DelimitMate'
-    use {
-      'nvim-tree/nvim-tree.lua',
-      requires = {
-        'nvim-tree/nvim-web-devicons',
-      },
-      tag = 'nightly'
-    }
     use 'preservim/tagbar'
     use "ray-x/lsp_signature.nvim"
-    --use {
-      --'nvim-lualine/lualine.nvim',
-      --requires = { 'nvim-tree/nvim-web-devicons'}
-    --}
+    use {
+        'jistr/vim-nerdtree-tabs',
+        requires = {'scrooloose/nerdtree'}
+    }
     use 'vim-airline/vim-airline'
     use 'ludovicchabant/vim-gutentags'
 
