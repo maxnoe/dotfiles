@@ -4,7 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-font pango: Fira Code, Font Awesome 5 Free
+font pango: Fira Code, Font Awesome 5 Free 10
 default_border pixel 2
 ### Variables
 #
@@ -23,10 +23,8 @@ set $term kitty
 set $menu bemenu-run | xargs swaymsg exec --
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/.local/share/Background.jpg fill
-output eDP-1 scale 2.5
+output eDP-1 scale 2
 #
 # Example configuration:
 #
@@ -223,7 +221,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
 # screenshots
 
-bindsym XF86SelectiveScreenShot exec grim -g "$(slurp)" ~/Pictures/Screenshot-$(date -Is).png
+bindsym Print exec grim -g "$(slurp)" ~/Pictures/Screenshot-$(date -Is).png
 
 #
 # Status Bar:
