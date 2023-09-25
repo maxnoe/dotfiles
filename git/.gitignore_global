@@ -1,4 +1,3 @@
-.texlive
 *.swp
 *~
 .cache
@@ -8,13 +7,14 @@
 .tags
 .tags.lock
 .tags.temp
+.texlive
 .vim
 Debug
 RelWithDbgInfo
 Release
 build
+compile_commands.json
 tags
 tags.lock
 tags.temp
 venv
-compile_commands.json
