@@ -63,3 +63,7 @@ if type lsd > /dev/null; then
 	compdef lsd='lsd'
 fi
 alias youtube_to_mp3='youtube-dl -x --audio-format=mp3 --audio-quality=192k'
+
+function upload_terminfo() {
+    infocmp -a $TERM | ssh $1 tic -x -o \~/.terminfo /dev/stdin
+}
