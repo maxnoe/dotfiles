@@ -19,12 +19,10 @@ alias updatetl='tlmgr update --self --all --reinstall-forcibly-removed'
 
 init_scripts=(
 	$HOME/.local/conda/etc/profile.d/conda.sh
-	$HOME/.local/anaconda/etc/profile.d/conda.sh
-	$HOME/.local/anaconda3/etc/profile.d/conda.sh
 	$HOME/.local/conda/etc/profile.d/mamba.sh
 	$HOME/.local/root6/bin/thisroot.sh
 	$HOME/.cargo/env
-	$HOME/.local/anaconda/etc/profile.d/mamba.sh
+    $HOME/.rvm/scripts/rvm
 )
 
 for script in $init_scripts; do
@@ -32,11 +30,6 @@ for script in $init_scripts; do
 		source "$script"
 	fi
 done
-
-if [ -x "$(command -v ruby)" ]; then
-    export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-    export PATH="$PATH:$GEM_HOME/bin"
-fi
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/node/bin:$PATH"

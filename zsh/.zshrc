@@ -67,3 +67,6 @@ alias youtube_to_mp3='youtube-dl -x --audio-format=mp3 --audio-quality=192k'
 function upload_terminfo() {
     infocmp -a $TERM | ssh $1 tic -x -o \~/.terminfo /dev/stdin
 }
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
