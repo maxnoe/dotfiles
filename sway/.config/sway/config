@@ -40,6 +40,7 @@ exec libinput-gestures
 exec nextcloud --background
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec gammastep-indicator &
+exec mako
 
 
 ### Idle configuration
@@ -148,6 +149,11 @@ input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" {
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    bindsym $mod+Control+Right move workspace to output right
+    bindsym $mod+Control+Left move workspace to output left
+    bindsym $mod+Control+Down move workspace to output down
+    bindsym $mod+Control+Up move workspace to output up
 #
 # Layout stuff:
 #
