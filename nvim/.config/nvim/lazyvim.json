@@ -1,0 +1,9 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.editor.trouble-v3"
+  ],
+  "news": {
+    "NEWS.md": "4944"
+  },
+  "version": 4
+}
