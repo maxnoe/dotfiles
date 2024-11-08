@@ -11,3 +11,5 @@ vim.opt.listchars = {
   nbsp = "·",
   trail = "·",
 }
+
+vim.opt.conceallevel = 0
