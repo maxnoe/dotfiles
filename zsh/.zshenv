@@ -36,9 +36,9 @@ export PATH="$HOME/.local/node/bin:$PATH"
 export PATH="$HOME/.local/go/bin:$PATH"
 export PATH="$HOME/.local/cmake/bin:$PATH"
 
-export PATH="$HOME/.local/texlive/2023/bin/x86_64-linux:$PATH"
-export MANPATH="$HOME/.local/texlive/2023/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="$HOME/.local/texlive/2023/texmf-dist/doc/man:$INFOPATH"
+export PATH="$HOME/.local/texlive/2024/bin/x86_64-linux:$PATH"
+export MANPATH="$HOME/.local/texlive/2024/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="$HOME/.local/texlive/2024/texmf-dist/doc/man:$INFOPATH"
 
 # added by travis gem
 export GTEST_COLOR=1
