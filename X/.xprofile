@@ -1,4 +1,0 @@
-xrandr --newmode "1920x1080" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync
-xrandr --addmode eDP1 "1920x1080"
-xrandr --newmode "1280x800" 83.50 1280 1352 1480 1680 800 803 809 831 -hsync +vsync
-xrandr --addmode eDP1 "1280x800"
