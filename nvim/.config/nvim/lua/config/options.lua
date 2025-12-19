@@ -13,3 +13,4 @@ vim.opt.listchars = {
 }
 
 vim.opt.conceallevel = 0
+vim.opt.mouse = ""
