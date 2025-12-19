@@ -1,6 +1,10 @@
 [user]
-	email = maximilian.linhoff@tu-dortmund.de
+	email = maximilian.linhoff@posteo.de
 	name = Maximilian Linhoff
+[includeIf "gitdir:~/CTAO/"]
+  path = "~/.gitconfig-ctao"
+[includeIf "gitdir:~/Uni/"]
+  path = "~/.gitconfig-tu"
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore_global
