@@ -8,6 +8,7 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore_global
+	pager = bat -p
 [push]
 	default = simple
 	autoSetupRemote = true
@@ -19,7 +20,7 @@
 [init]
 	defaultBranch = main
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 
 [alias]
 	graph = log --graph --all --decorate
