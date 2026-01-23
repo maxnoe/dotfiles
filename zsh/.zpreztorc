@@ -184,10 +184,10 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 
 #  found commands blue
 zstyle ':prezto:module:syntax-highlighting' styles \
-  'builtin' 'fg=blue' \
-  'alias' 'fg=blue' \
-  'command' 'fg=blue' \
-  'function' 'fg=blue' \
+  'builtin' 'fg=cyan' \
+  'alias' 'fg=cyan' \
+  'command' 'fg=cyan' \
+  'function' 'fg=cyan' \
   'comment' 'fg=242' \
 
 # Set syntax pattern styles.

@@ -3,7 +3,7 @@ export BROWSER=firefox
 export GOBIN=$HOME/.local/bin
 export GTEST_COLOR=1
 export OSTYPE=linux-gnu
-export max_print_line=2147483647
+export MAMBA_ROOT_PREFIX="$HOME/.local/conda"
 
 alias vim=nvim
 alias gits='git status -s'
@@ -22,7 +22,7 @@ init_scripts=(
 	$HOME/.local/conda/etc/profile.d/mamba.sh
 	$HOME/.local/root6/bin/thisroot.sh
 	$HOME/.cargo/env
-    $HOME/.rvm/scripts/rvm
+  $HOME/.rvm/scripts/rvm
 )
 
 for script in $init_scripts; do
@@ -44,7 +44,8 @@ export INFOPATH="$HOME/.local/texlive/2024/texmf-dist/doc/man:$INFOPATH"
 export GTEST_COLOR=1
 export LANGUAGE=en_US
 export GAMMAPY_DATA="$HOME/Projects/gammapy/gammapy-datasets/dev"
-export max_print_line=2147483647
+export max_print_line=19999
 export CMAKE_GENERATOR=Ninja
 export CMAKE_EXPORT_COMPILE_COMMANDS=ON
 export CMAKE_COLOR_DIAGNOSTICS=ON
+

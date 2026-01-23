@@ -50,7 +50,6 @@ zle -N scroll-and-clear-screen
 bindkey '^l' scroll-and-clear-screen
 
 setopt complete_aliases
-alias rg='kitty +kitten hyperlinked_grep'
 
 unsetopt BEEP
 unsetopt LIST_BEEP
@@ -70,3 +69,7 @@ function upload_terminfo() {
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+function runner_exec() {
+  KUBECONFIG=/home/maxnoe/CTAO/dpps/dpps-testcluster-k8s-dev.yaml kubectl exec -it -n dpps-gitlab-runner-flux $1 -c build -- /bin/sh
+}
